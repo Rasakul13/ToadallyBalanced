@@ -48,5 +48,8 @@ public class PlayerCollision : MonoBehaviour
         player.transform.SetPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0,0,0)));
 
         movement.enabled = true;
+
+        FindObjectOfType<AudioManager>().Play("PlayerSpawn");
+
     } 
 }

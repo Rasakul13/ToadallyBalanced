@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {   
         countdown.StartCountdown();
+        FindObjectOfType<AudioManager>().Play("CountDown");
+
 
         gameHasEnded = false;
         gameOver.GetComponent<Text>().enabled = false;
@@ -79,7 +81,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start Game");
         
-        client.CreateSocket(5555, "192.168.0.31");
+        //client.CreateSocket(5555, "192.168.0.31");
+        client.CreateSocket(5555);
         timer.StartTimer();
         FindObjectOfType<SpawnManager>().StartSpawn();
 
@@ -122,11 +125,14 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("LEVEL ACCOMPLISHED");
                 levelAccomplished.GetComponent<Text>().enabled = true;
+                FindObjectOfType<AudioManager>().Play("LevelCompleted");
             }
             else
             {
                 Debug.Log("GAME OVER");
                 gameOver.GetComponent<Text>().enabled = true;
+                FindObjectOfType<AudioManager>().Play("GameOver");
+
             }
 
             FindObjectOfType<SpawnManager>().DespawnFruit();
@@ -135,6 +141,7 @@ public class GameManager : MonoBehaviour
     
     public void TakeDamage()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
         if(hp > 1)
         {
             hp -= 1;

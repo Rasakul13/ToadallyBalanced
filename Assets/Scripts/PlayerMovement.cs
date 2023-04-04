@@ -31,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
             if(!String.IsNullOrEmpty(input) && input.Contains(" 83,")) 
             {   
-                //print(input);
-
                 // use gravitysensor data (id 83)
                 int start = input.IndexOf(" 83,");
                 input = input.Substring(start);
@@ -49,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if(Mathf.Abs(x_Axis) > 0.4f)
                 {   
-                    var x = -x_Axis/2.5f;
+                    var x = -x_Axis/2f;
                     movement.x = x;
                 }
                 else 
@@ -58,9 +56,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 
-                if(Mathf.Abs(y_Axis) > 0.2f)
+                if(Mathf.Abs(y_Axis) > 0.25f)
                 {   
-                    var y = -y_Axis/2.5f;
+                    var y = -y_Axis/2f;
                     
                     if(y < 0) 
                     {

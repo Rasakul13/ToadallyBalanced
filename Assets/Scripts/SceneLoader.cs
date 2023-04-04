@@ -30,7 +30,11 @@ public class SceneLoader : MonoBehaviour
             case 3:
                 scoreGoal = 1200;
                 time = 60f; 
-                break;    
+                break;
+            case 4:
+                scoreGoal = 1000;
+                time = 90f; 
+                break;
         }
 
         SceneManager.LoadScene(levelnumber);

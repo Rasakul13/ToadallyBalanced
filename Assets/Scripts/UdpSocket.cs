@@ -18,19 +18,13 @@ public class UdpSocket : MonoBehaviour
 
     public bool socketOpen = false;
 
-    public void CreateSocket(int port, string ip)
+    //public void CreateSocket(int port, string ip)
+    public void CreateSocket(int port)
     {   
         Debug.Log("Create new Udp client on port " + port.ToString());
 
         receivedData = new byte[0];
-
-        //thread = new Thread(ReceiveData);
-        //thread.Start();
-
-        //ipEndPoint = new IPEndPoint(IPAddress.Any, port);
-        //client = new UdpClient(ipEndPoint);
         client = new UdpClient(port);
-
         endPoint = new IPEndPoint(IPAddress.Any, 0);
 
         socketOpen = true;
@@ -42,8 +36,6 @@ public class UdpSocket : MonoBehaviour
          {
             receivedData = client.Receive(ref endPoint);
             dataString = Encoding.ASCII.GetString(receivedData);
-             
-            //dataString = dataString.Substring(17,24);
 
             return dataString;
          }
