@@ -6,12 +6,15 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] fruitPrefabs = new GameObject[4];
     int rnd;
+    public float delay = 0.5f;
 
     bool positionIsFree;
 
     public void StartSpawn()
     {   
+        
         SpawnFruit();
+        
     }
 
     public void SpawnFruit()
