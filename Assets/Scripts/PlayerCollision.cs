@@ -28,6 +28,8 @@ public class PlayerCollision : MonoBehaviour
             FindObjectOfType<GameManager>().TakeDamage();
 
             movement.enabled = false;
+            //movement.setMovementBool(false);
+            
             animator.Play("DisappearingAnimation", 0, 3f);
 
             if(player && FindObjectOfType<GameManager>().gameHasEnded == false)
@@ -48,6 +50,7 @@ public class PlayerCollision : MonoBehaviour
         player.transform.SetPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0,0,0)));
 
         movement.enabled = true;
+        //movement.setMovementBool(true);
 
         FindObjectOfType<AudioManager>().Play("PlayerSpawn");
 

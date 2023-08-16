@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public SceneLoader sceneLoader;
 
     public Animator animator;
+
+    public GameObject player;
     public PlayerMovement movement;
 
     public Text gameOver;
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
     {   
         countdown.StartCountdown();
         FindObjectOfType<AudioManager>().Play("CountDown");
-
+        player = GameObject.FindWithTag("Player");
 
         gameHasEnded = false;
         gameOver.GetComponent<Text>().enabled = false;
@@ -56,18 +58,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            Restart();
-        }
+    {}
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Quit();
-        }
-    }
-    
     void FixedUpdate()
     {   
         hpCounter.text = hp.ToString(); 
@@ -87,6 +79,8 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<SpawnManager>().StartSpawn();
 
         gameHasStarted = true;
+
+
     }
 
     public void Restart()
@@ -119,6 +113,8 @@ public class GameManager : MonoBehaviour
             animator.Play("DisappearingAnimation", 0, 3f);
             animator.SetBool("gameHasEnded", true);
 
+            
+
             client.CloseSocket();
 
             if(accomplished == true)
@@ -136,6 +132,9 @@ public class GameManager : MonoBehaviour
             }
 
             FindObjectOfType<SpawnManager>().DespawnFruit();
+            
+            StartCoroutine(WaitCoroutine(1.0f));
+            
         }
     }
     
@@ -152,4 +151,11 @@ public class GameManager : MonoBehaviour
             GameEnd(false);
         }
     }
+
+    private IEnumerator WaitCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.SetActive(false);
+        GameObject.FindWithTag("Feedback").SetActive(false);
+    } 
 }

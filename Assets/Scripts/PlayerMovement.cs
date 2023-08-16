@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     float x_Axis = 0;
     float y_Axis = 0;
 
+    bool isEnabled = true;
 
     void Update()
     {
@@ -82,8 +83,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() 
-    {
-        // Movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    {   
+
+        //while(enabled==true) {
+            // Movement
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        //}
+    }
+
+    public void setMovementBool(bool boolean) {
+        isEnabled = boolean;
     }
 }

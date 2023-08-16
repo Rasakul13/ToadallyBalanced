@@ -805,6 +805,7 @@ GameObject:
   - component: {fileID: 321328883}
   - component: {fileID: 321328882}
   - component: {fileID: 321328884}
+  - component: {fileID: 321328885}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -827,6 +828,7 @@ MonoBehaviour:
   client: {fileID: 1817376511}
   sceneLoader: {fileID: 0}
   animator: {fileID: 619545273}
+  player: {fileID: 619545272}
   movement: {fileID: 619545277}
   gameOver: {fileID: 1411581269}
   levelAccomplished: {fileID: 1437978109}
@@ -870,6 +872,19 @@ MonoBehaviour:
   - {fileID: 6259475418571700100, guid: 2c218ef2979ca3f47b536f0aa102c243, type: 3}
   - {fileID: 62323166809426143, guid: 6728ac90532ffcc49b6b99ac7834e100, type: 3}
   - {fileID: 7760642013620924590, guid: 8e53890eb8075f049b586b806200e0e0, type: 3}
+  delay: 3
+--- !u!114 &321328885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321328881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f00301b938b4823afef46507135ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &340990058
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,22 @@ public class MenuController : MonoBehaviour
         sceneLoader.LoadLevel(levelnumber);
     }
 
+// TODO
+    public void setCountdown()
+    {
+
+    }
+
+    public void enableVolume()
+    {
+
+    }
+
+    public void disabeVolume()
+    {
+
+    }
+
     public void QuitGame()
     {   
         Debug.Log("QUIT!");
