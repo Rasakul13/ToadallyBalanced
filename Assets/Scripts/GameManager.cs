@@ -58,18 +58,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            Restart();
-        }
+    {}
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Quit();
-        }
-    }
-    
     void FixedUpdate()
     {   
         hpCounter.text = hp.ToString(); 
@@ -89,6 +79,8 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<SpawnManager>().StartSpawn();
 
         gameHasStarted = true;
+
+
     }
 
     public void Restart()
