@@ -3,11 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {   
 
+    [SerializeField] Slider volumeSlider; 
+    
     public Sound[] sounds;
+
+    void Start()
+    {
+        if(!PlayerPrefs.HasKey("volume"))
+        {
+            PlayerPrefs.SetFloat("volume", 1);
+            Load();
+        }
+        else 
+        {
+            Load(); 
+        } 
+    }
 
     void Awake()
     {
@@ -17,6 +33,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.playOnAwake = false;
         }
     }
 
@@ -24,5 +41,21 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
+    }
+
+    public void changeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
     }
 }
