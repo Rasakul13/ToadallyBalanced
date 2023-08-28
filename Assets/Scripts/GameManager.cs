@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     public Text levelAccomplished;
     public bool gameHasEnded;
 
-    public CountdownController countdown;
+    public CountdownController countdownController;
+    public int countdown;
     public bool gameHasStarted;
 
     public TimerController timer;
@@ -48,8 +49,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {   
-        countdown.StartCountdown();
-        FindObjectOfType<AudioManager>().Play("CountDown");
+        countdown = (int)PlayerPrefs.GetFloat("countdown");
+        countdownController.StartCountdown(countdown);
+        
         player = GameObject.FindWithTag("Player");
 
         gameHasEnded = false;

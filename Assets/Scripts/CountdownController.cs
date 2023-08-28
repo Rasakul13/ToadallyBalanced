@@ -6,18 +6,25 @@ using UnityEngine;
 public class CountdownController : MonoBehaviour
 {   
 
-    public int countdownTime = 3;
+    public int countdownTime;
     public Text countdownText;
 
-    public void StartCountdown()
+    public void StartCountdown(int i)
     {
+        countdownTime = i;
         StartCoroutine(CountdownCoroutine());
     }
 
     IEnumerator CountdownCoroutine()
     {
+        
         while(countdownTime > 0) 
         {
+            if(countdownTime == 3) 
+            {
+                FindObjectOfType<AudioManager>().Play("CountDown");
+            }
+            
             countdownText.text = countdownTime.ToString();
 
             yield return new WaitForSeconds(1f);

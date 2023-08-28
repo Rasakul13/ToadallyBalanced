@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void changeVolume()
+    public void ChangeVolume()
     {
         AudioListener.volume = volumeSlider.value;
         Save();

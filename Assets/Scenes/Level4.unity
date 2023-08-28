@@ -870,7 +870,7 @@ MonoBehaviour:
   gameOver: {fileID: 1411581269}
   levelAccomplished: {fileID: 1437978109}
   gameHasEnded: 0
-  countdown: {fileID: 832201274}
+  countdownController: {fileID: 832201274}
   gameHasStarted: 0
   timer: {fileID: 1014817954}
   score: {fileID: 711210233}
