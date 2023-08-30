@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private static int scoreGoal = 0;
-    private static float time = 0f;
+    private static int hp = 0;
     
-    public static Tuple<int, float> GetLeveldata() 
+    public static Tuple<int, int> GetLeveldata() 
     { 
-        var tuple = Tuple.Create(scoreGoal, time);
+        var tuple = Tuple.Create(scoreGoal, hp);
         return tuple;
     }
 
@@ -21,19 +21,19 @@ public class SceneLoader : MonoBehaviour
         {
             case 1:
                 scoreGoal = 1000;
-                time = 90f; 
+                hp = 5;
                 break;
             case 2:
                 scoreGoal = 1200;
-                time = 90f; 
+                hp = 4; 
                 break;
             case 3:
                 scoreGoal = 1200;
-                time = 60f; 
+                hp = 3; 
                 break;
             case 4:
                 scoreGoal = 1000;
-                time = 90f; 
+                hp = 3; 
                 break;
         }
 

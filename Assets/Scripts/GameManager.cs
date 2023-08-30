@@ -41,17 +41,17 @@ public class GameManager : MonoBehaviour
         scoreGoalValue = tuple.Item1;
         scoreGoal.text = scoreGoalValue.ToString(); 
 
-        timerValue = tuple.Item2;
-        timer.SetTimer(timerValue);
+        hp = tuple.Item2;
+        
+        timerValue = PlayerPrefs.GetFloat("time");
+        timer.SetTimer(timerValue*30);
 
-        hp = 3;
+        countdown = (int)PlayerPrefs.GetFloat("countdown");
+        countdownController.StartCountdown(countdown);
     }
 
     void Start()
     {   
-        countdown = (int)PlayerPrefs.GetFloat("countdown");
-        countdownController.StartCountdown(countdown);
-        
         player = GameObject.FindWithTag("Player");
 
         gameHasEnded = false;
