@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        // TODO: delete sceneLoader and get Data depending on set difficulty
         var tuple = SceneLoader.GetLeveldata();
         
         scoreGoalValue = tuple.Item1;

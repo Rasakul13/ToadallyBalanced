@@ -14,15 +14,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        if(!PlayerPrefs.HasKey("volume"))
-        {
-            PlayerPrefs.SetFloat("volume", 1);
-            Load();
-        }
-        else 
-        {
-            Load(); 
-        } 
+        Load();
     }
 
     void Awake()
@@ -49,8 +41,12 @@ public class AudioManager : MonoBehaviour
         Save();
     }
 
-    private void Load()
+    public void Load()
     {
+        if(!PlayerPrefs.HasKey("volume"))
+        {
+            PlayerPrefs.SetFloat("volume", 0.5f);
+        }
         volumeSlider.value = PlayerPrefs.GetFloat("volume");
     }
 

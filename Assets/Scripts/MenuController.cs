@@ -19,26 +19,8 @@ public class MenuController : MonoBehaviour
 
     public void Start()
     {
-        if(!PlayerPrefs.HasKey("countdown"))
-        {
-            PlayerPrefs.SetFloat("countdown", 3);
-            LoadCountdown();
-        }
-        else 
-        {
-            LoadCountdown(); 
-        } 
-
-        
-        if(!PlayerPrefs.HasKey("time"))
-        {
-            PlayerPrefs.SetFloat("time", 3);
-            LoadTime();
-        }
-        else 
-        {
-            LoadTime(); 
-        }
+        LoadCountdown();
+        LoadTime();
     }
 
     public void ChangeCountdown()
@@ -50,6 +32,11 @@ public class MenuController : MonoBehaviour
 
     private void LoadCountdown()
     {
+        if(!PlayerPrefs.HasKey("countdown"))
+        {
+            PlayerPrefs.SetFloat("countdown", 5);
+        }
+        
         countdownSlider.value = PlayerPrefs.GetFloat("countdown");
         countdown = countdownSlider.value;
         countdownSliderValue.text = countdown.ToString();
@@ -70,6 +57,11 @@ public class MenuController : MonoBehaviour
 
     private void LoadTime()
     {
+        if(!PlayerPrefs.HasKey("time"))
+        {
+            PlayerPrefs.SetFloat("time", 3);
+        }
+        
         timeSlider.value = PlayerPrefs.GetFloat("time");
         time = timeSlider.value*30;
         DisplayTime(time);
@@ -87,7 +79,18 @@ public class MenuController : MonoBehaviour
         timeSliderValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     
+    public void ResetSettings()
+    {
+        PlayerPrefs.DeleteKey("countdown");
+        LoadCountdown();
 
+        PlayerPrefs.DeleteKey("time");
+        LoadTime();
+       
+        PlayerPrefs.DeleteKey("volume");
+        FindObjectOfType<AudioManager>().Load();
+
+    }
 
     public void SelectLevel(int levelnumber)
     {
