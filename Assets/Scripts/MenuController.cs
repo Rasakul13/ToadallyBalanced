@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
 {
@@ -17,11 +18,42 @@ public class MenuController : MonoBehaviour
     [SerializeField] Slider timeSlider;
     [SerializeField] private TextMeshProUGUI timeSliderValue;
 
+    Button easyButton;
+    Button normalButton;
+    Button hardButton;
+
     public void Start()
     {
         LoadCountdown();
         LoadTime();
+        LoadDifficulty();
+
+        SelectButton(0);
+        //easyButton.Select();
+        
+        //EventSystem.current.SetSelectedGameObject(easyButton);
     }
+
+    
+    private void SelectButton(int controlIndex)
+    {
+        //if (controlIndex < _buttons.Count)
+        {
+            //Button button = _buttons[controlIndex];
+            Button button = easyButton;
+            if (button != null)
+            {
+                EventSystem.current.SetSelectedGameObject(button.gameObject, new BaseEventData(EventSystem.current));
+                Debug.Log("selected" + button.gameObject);
+            }
+            else 
+            {
+                Debug.Log("button not found");
+
+            }
+        }
+    }
+    
 
     public void ChangeCountdown()
     {
@@ -72,13 +104,33 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("time", timeSlider.value);
     }
 
-    void DisplayTime(float t)
+    private void DisplayTime(float t)
     {   
         float minutes = Mathf.FloorToInt(t/60);
         float seconds = Mathf.FloorToInt(t%60);
         timeSliderValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     
+   public void SetDifficulty(float difficulty)
+    {
+        SaveDifficulty(difficulty);
+    }
+
+    private void LoadDifficulty()
+    {
+        if(!PlayerPrefs.HasKey("difficulty"))
+        {
+            PlayerPrefs.SetFloat("difficulty", 1f);
+        }
+        
+        //TODO highlight selected Button 1 - 2 - 3
+    }
+
+    private void SaveDifficulty(float difficulty)
+    {
+        PlayerPrefs.SetFloat("difficulty", difficulty);
+    }
+
     public void ResetSettings()
     {
         PlayerPrefs.DeleteKey("countdown");
