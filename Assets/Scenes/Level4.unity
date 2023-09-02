@@ -863,7 +863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   client: {fileID: 1817376511}
-  sceneLoader: {fileID: 0}
   animator: {fileID: 619545273}
   player: {fileID: 619545272}
   movement: {fileID: 619545277}
@@ -871,6 +870,7 @@ MonoBehaviour:
   levelAccomplished: {fileID: 1437978109}
   gameHasEnded: 0
   countdownController: {fileID: 832201274}
+  countdown: 0
   gameHasStarted: 0
   timer: {fileID: 1014817954}
   score: {fileID: 711210233}
@@ -4486,7 +4486,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &1646323123
 CanvasRenderer:
   m_ObjectHideFlags: 0
