@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 {   
     public UdpSocket client;
 
-    public SceneLoader sceneLoader;
-
     public Animator animator;
 
     public GameObject player;
@@ -30,25 +28,47 @@ public class GameManager : MonoBehaviour
     public ScoreController score;
     public Text scoreGoal; 
     public int scoreGoalValue;
+    int scoreGoalMultiplier;
 
     public Text hpCounter;
-    int hp;
+    private int hp;
+
+    private int difficulty;
 
     void Awake()
     {
-        // TODO: delete sceneLoader and get Data depending on set difficulty
-        var tuple = SceneLoader.GetLeveldata();
-        
-        scoreGoalValue = tuple.Item1;
-        scoreGoal.text = scoreGoalValue.ToString(); 
-
-        hp = tuple.Item2;
+        countdown = (int)PlayerPrefs.GetFloat("countdown");
+        countdownController.StartCountdown(countdown);
         
         timerValue = PlayerPrefs.GetFloat("time");
         timer.SetTimer(timerValue*30);
+        
+        difficulty = (int)PlayerPrefs.GetFloat("difficulty");
+        hp = 5-difficulty;
+        
+        switch(difficulty)
+        {
+            case 0:
+                scoreGoalMultiplier = 250;
+                break;
+            case 1:
+                scoreGoalMultiplier = 300;
+                break;
+            case 2:
+                scoreGoalMultiplier = 400;
+                break;
+        }
 
-        countdown = (int)PlayerPrefs.GetFloat("countdown");
-        countdownController.StartCountdown(countdown);
+        scoreGoalValue = (int)timerValue * scoreGoalMultiplier;
+
+        if(scoreGoalValue%100 == 50) 
+        {
+            scoreGoalValue -= 50;
+        }
+
+        scoreGoal.text = scoreGoalValue.ToString(); 
+
+        
     }
 
     void Start()

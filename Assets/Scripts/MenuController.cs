@@ -8,8 +8,6 @@ using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
 {
-    public SceneLoader sceneLoader;
-    
     public float countdown;
     [SerializeField] Slider countdownSlider;
     [SerializeField] private TextMeshProUGUI countdownSliderValue;
@@ -18,42 +16,15 @@ public class MenuController : MonoBehaviour
     [SerializeField] Slider timeSlider;
     [SerializeField] private TextMeshProUGUI timeSliderValue;
 
-    Button easyButton;
-    Button normalButton;
-    Button hardButton;
+    public float difficulty;
+    [SerializeField] TMP_Dropdown difficultyDropdown;
 
     public void Start()
     {
         LoadCountdown();
         LoadTime();
         LoadDifficulty();
-
-        SelectButton(0);
-        //easyButton.Select();
-        
-        //EventSystem.current.SetSelectedGameObject(easyButton);
     }
-
-    
-    private void SelectButton(int controlIndex)
-    {
-        //if (controlIndex < _buttons.Count)
-        {
-            //Button button = _buttons[controlIndex];
-            Button button = easyButton;
-            if (button != null)
-            {
-                EventSystem.current.SetSelectedGameObject(button.gameObject, new BaseEventData(EventSystem.current));
-                Debug.Log("selected" + button.gameObject);
-            }
-            else 
-            {
-                Debug.Log("button not found");
-
-            }
-        }
-    }
-    
 
     public void ChangeCountdown()
     {
@@ -111,9 +82,11 @@ public class MenuController : MonoBehaviour
         timeSliderValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     
-   public void SetDifficulty(float difficulty)
+
+    public void ChangeDifficulty(int difficultyIndex)
     {
-        SaveDifficulty(difficulty);
+        difficulty = difficultyIndex;
+        SaveDifficulty();
     }
 
     private void LoadDifficulty()
@@ -123,12 +96,12 @@ public class MenuController : MonoBehaviour
             PlayerPrefs.SetFloat("difficulty", 1f);
         }
         
-        //TODO highlight selected Button 1 - 2 - 3
+        difficultyDropdown.value = (int)PlayerPrefs.GetFloat("difficulty");
     }
 
-    private void SaveDifficulty(float difficulty)
+    private void SaveDifficulty()
     {
-        PlayerPrefs.SetFloat("difficulty", difficulty);
+        PlayerPrefs.SetFloat("difficulty", difficultyDropdown.value);
     }
 
     public void ResetSettings()
@@ -142,12 +115,15 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("volume");
         FindObjectOfType<AudioManager>().Load();
 
+        PlayerPrefs.DeleteKey("difficulty");
+        LoadDifficulty();
+
     }
 
     public void SelectLevel(int levelnumber)
     {
         Debug.Log("Load Level " + levelnumber.ToString());
-        sceneLoader.LoadLevel(levelnumber);
+        SceneManager.LoadScene(levelnumber);
     }
 
     public void QuitGame()

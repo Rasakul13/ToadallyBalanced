@@ -18,8 +18,11 @@ public class CountdownController : MonoBehaviour
     IEnumerator CountdownCoroutine()
     {
         
+        yield return new WaitForSeconds(0f);
+
         while(countdownTime > 0) 
         {
+            
             if(countdownTime == 3) 
             {
                 FindObjectOfType<AudioManager>().Play("CountDown");
