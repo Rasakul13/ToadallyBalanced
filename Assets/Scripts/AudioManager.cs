@@ -8,14 +8,11 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {   
 
-    [SerializeField] Slider volumeSlider; 
+    [SerializeField] Slider soundVolumeSlider; 
+    [SerializeField] Slider musicVolumeSlider; 
     
-    public Sound[] sounds;
-
-    void Start()
-    {
-        Load();
-    }
+    public Sound[] sounds, music;
+    public AudioSource soundSource, musicSource;
 
     void Awake()
     {
@@ -29,29 +26,68 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        LoadSoundVolume();
+        LoadMusicVolume();
+    }
+
     public void Play(String name) 
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
-    }
-
-    public void ChangeVolume()
-    {
-        AudioListener.volume = volumeSlider.value;
-        Save();
-    }
-
-    public void Load()
-    {
-        if(!PlayerPrefs.HasKey("volume"))
+        
+        if(s == null)
         {
-            PlayerPrefs.SetFloat("volume", 0.5f);
+            Debug.Log("Sound clip not found");
         }
-        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+        else 
+        {
+            soundSource.clip = s.clip;
+            soundSource.Play();
+        }
     }
 
-    private void Save()
+
+    public void ChangeSoundVolume()
+    {   
+        soundSource.volume = soundVolumeSlider.value;
+        SaveSoundVolume();
+    }
+
+    public void LoadSoundVolume()
     {
-        PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        if(!PlayerPrefs.HasKey("soundVolume"))
+        {
+            PlayerPrefs.SetFloat("soundVolume", 0.5f);
+        }
+        soundVolumeSlider.value = PlayerPrefs.GetFloat("soundVolume");
+        soundSource.volume = soundVolumeSlider.value;
+    }
+
+    private void SaveSoundVolume()
+    {
+        PlayerPrefs.SetFloat("soundVolume", soundVolumeSlider.value);
+    }
+
+
+    public void ChangeMusicVolume()
+    {   
+        musicSource.volume = musicVolumeSlider.value;
+        SaveMusicVolume();
+    }
+
+    public void LoadMusicVolume()
+    {
+        if(!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 0.05f);
+        }
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        musicSource.volume = musicVolumeSlider.value;
+    }
+
+    private void SaveMusicVolume()
+    {
+        PlayerPrefs.SetFloat("musicVolume", musicVolumeSlider.value);
     }
 }

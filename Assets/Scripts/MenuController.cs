@@ -18,12 +18,36 @@ public class MenuController : MonoBehaviour
 
     public float difficulty;
     [SerializeField] TMP_Dropdown difficultyDropdown;
+    
+    Resolution[] resolutions;
+    [SerializeField] TMP_Dropdown resolutionDropdown;
 
     public void Start()
     {
         LoadCountdown();
         LoadTime();
         LoadDifficulty();
+
+        /*
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        */
     }
 
     public void ChangeCountdown()
@@ -104,6 +128,19 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("difficulty", difficultyDropdown.value);
     }
 
+    public void SetFullscreen(bool setFullscreen)
+    {
+        Screen.fullScreen = !setFullscreen;
+    }
+
+    /*
+    public void ChangeResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    */
+
     public void ResetSettings()
     {
         PlayerPrefs.DeleteKey("countdown");
@@ -112,12 +149,14 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("time");
         LoadTime();
        
-        PlayerPrefs.DeleteKey("volume");
-        FindObjectOfType<AudioManager>().Load();
+        PlayerPrefs.DeleteKey("soundVolume");
+        FindObjectOfType<AudioManager>().LoadSoundVolume();
+
+        PlayerPrefs.DeleteKey("musicVolume");
+        FindObjectOfType<AudioManager>().LoadMusicVolume();
 
         PlayerPrefs.DeleteKey("difficulty");
         LoadDifficulty();
-
     }
 
     public void SelectLevel(int levelnumber)
