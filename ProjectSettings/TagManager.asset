@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Fruit
   - Feedback
+  - WoodenBox
   layers:
   - Default
   - TransparentFX
