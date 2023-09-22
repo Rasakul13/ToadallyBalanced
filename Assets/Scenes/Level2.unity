@@ -5695,7 +5695,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1910877382}
   - component: {fileID: 1910877381}
-  - component: {fileID: 1910877380}
   - component: {fileID: 1910877379}
   m_Layer: 0
   m_Name: Box
@@ -5717,28 +5716,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0037833452, y: 0}
+  m_Offset: {x: -0.00021066931, y: -0.00020738442}
   serializedVersion: 2
-  m_Radius: 0.4474889
---- !u!95 &1910877380
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910877378}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 26e5a85b469aa4f479ae45d4f88cc047, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_Radius: 0.029077781
 --- !u!212 &1910877381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5799,7 +5779,7 @@ Transform:
   m_GameObject: {fileID: 1910877378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.4597058, y: -1.4595644, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 18, y: 18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
