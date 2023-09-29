@@ -11,6 +11,7 @@ TagManager:
   - WoodenBox
   - Obstacle
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

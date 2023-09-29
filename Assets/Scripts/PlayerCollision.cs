@@ -23,7 +23,7 @@ public class PlayerCollision : MonoBehaviour
     {   
         if(!invulnerable) 
         {
-            if(collision.collider.CompareTag("Trap") || collision.collider.CompareTag("Bullet"))
+            if(collision.collider.CompareTag("Trap") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet"))
             {   
                 invulnerable = true;
                 
