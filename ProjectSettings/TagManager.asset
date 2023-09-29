@@ -9,6 +9,8 @@ TagManager:
   - Fruit
   - Feedback
   - WoodenBox
+  - Obstacle
+  - Bullet
   layers:
   - Default
   - TransparentFX

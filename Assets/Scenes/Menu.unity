@@ -1490,7 +1490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &324468203
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4404,6 +4404,11 @@ MonoBehaviour:
     volume: 0.9
     pitch: 1
     source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: b13ec008ae3a241fc801cd577817d000, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
   music:
   - name: Music
     clip: {fileID: 8300000, guid: 6fe8d6db25b8042f6a5f3ec16f89eded, type: 3}
@@ -4775,7 +4780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &836646378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10886,7 +10891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1921905492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12126,7 +12131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2101612964
 RectTransform:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class PlayerCollision : MonoBehaviour
     {   
         if(!invulnerable) 
         {
-            if(collision.collider.CompareTag("Trap")) 
+            if(collision.collider.CompareTag("Trap") || collision.collider.CompareTag("Bullet"))
             {   
                 invulnerable = true;
                 
@@ -45,7 +45,7 @@ public class PlayerCollision : MonoBehaviour
                 {
                     animator.SetBool("gameHasEnded", true);
                 }
-            }      
+            } 
         }
          
     }
