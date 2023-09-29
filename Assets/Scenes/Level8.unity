@@ -4888,6 +4888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a397d02d899a142fa96f96af3ef9362d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1559929525}
   targetTransform: {fileID: 887363891}
   interpolationTime: 0
   delay: 4
