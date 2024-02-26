@@ -8,6 +8,10 @@ TagManager:
   - Wall
   - Fruit
   - Feedback
+  - WoodenBox
+  - Obstacle
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

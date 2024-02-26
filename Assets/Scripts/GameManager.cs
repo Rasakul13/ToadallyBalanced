@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 {   
     public UdpSocket client;
 
-    public SceneLoader sceneLoader;
-
     public Animator animator;
 
     public GameObject player;
@@ -20,7 +18,8 @@ public class GameManager : MonoBehaviour
     public Text levelAccomplished;
     public bool gameHasEnded;
 
-    public CountdownController countdown;
+    public CountdownController countdownController;
+    public int countdown;
     public bool gameHasStarted;
 
     public TimerController timer;
@@ -29,27 +28,51 @@ public class GameManager : MonoBehaviour
     public ScoreController score;
     public Text scoreGoal; 
     public int scoreGoalValue;
+    int scoreGoalMultiplier;
 
     public Text hpCounter;
-    int hp;
+    private int hp;
+
+    private int difficulty;
 
     void Awake()
     {
-        var tuple = SceneLoader.GetLeveldata();
+        countdown = (int)PlayerPrefs.GetFloat("countdown");
+        countdownController.StartCountdown(countdown);
         
-        scoreGoalValue = tuple.Item1;
+        timerValue = PlayerPrefs.GetFloat("time");
+        timer.SetTimer(timerValue*30);
+        
+        difficulty = (int)PlayerPrefs.GetFloat("difficulty");
+        hp = 5-difficulty;
+        
+        switch(difficulty)
+        {
+            case 0:
+                scoreGoalMultiplier = 250;
+                break;
+            case 1:
+                scoreGoalMultiplier = 300;
+                break;
+            case 2:
+                scoreGoalMultiplier = 400;
+                break;
+        }
+
+        scoreGoalValue = (int)timerValue * scoreGoalMultiplier;
+
+        if(scoreGoalValue%100 == 50) 
+        {
+            scoreGoalValue -= 50;
+        }
+
         scoreGoal.text = scoreGoalValue.ToString(); 
 
-        timerValue = tuple.Item2;
-        timer.SetTimer(timerValue);
-
-        hp = 3;
+        
     }
 
     void Start()
     {   
-        countdown.StartCountdown();
-        FindObjectOfType<AudioManager>().Play("CountDown");
         player = GameObject.FindWithTag("Player");
 
         gameHasEnded = false;

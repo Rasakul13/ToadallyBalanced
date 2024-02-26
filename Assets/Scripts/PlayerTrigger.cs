@@ -39,9 +39,11 @@ public class PlayerTrigger : MonoBehaviour
         score.scoreValue <FindObjectOfType<GameManager>().scoreGoalValue)
         {   
             //Debug.Log("new fruit spawned");
-            FindObjectOfType<SpawnManager>().SpawnFruit();
+            
 
             StartCoroutine(FeedbackCoroutine(position, value));
+
+            StartCoroutine(WaitforNewSpawnCoroutine());
         }
     }
     
@@ -64,5 +66,15 @@ public class PlayerTrigger : MonoBehaviour
 
         Destroy(duplicate);
     }
+
+     IEnumerator WaitforNewSpawnCoroutine()
+     {
+        yield return new WaitForSeconds(1f);
+
+        if(FindObjectOfType<GameManager>().gameHasEnded == false)
+        {
+            FindObjectOfType<SpawnManager>().SpawnFruit();
+        }
+     }
     
 }
