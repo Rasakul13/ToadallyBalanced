@@ -25,16 +25,17 @@ public class MenuController : MonoBehaviour
     public int port;
     [SerializeField] private TMP_InputField portInputField;
 
+    public float sensitivity;
+    [SerializeField] Slider sensitivitySlider;
+
 
     public void Start()
     {   
-        portInputField.onValueChanged.RemoveAllListeners();
-        portInputField.onValueChanged.AddListener(ChangePort);
-
         LoadCountdown();
         LoadTime();
         LoadDifficulty();
         LoadPort();
+        LoadSensitivity();
 
         /*
         resolutions = Screen.resolutions;
@@ -136,6 +137,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("difficulty", difficultyDropdown.value);
     }
 
+
     public void ChangePort(string portString)
     {
         if (int.TryParse(portString, out int port) && port > 0 && port < 65536)
@@ -146,10 +148,14 @@ public class MenuController : MonoBehaviour
         else
         {
             Debug.LogWarning("Invalid port number. Please enter a value between 1 and 65535.");
+
+            port = PlayerPrefs.GetInt("port", 5555);
+            portInputField.text = port.ToString();
+            PlayerPrefs.SetInt("port", port);
+            Debug.Log($"Port set to fallback: {port}");
         }
     }
 
- 
     private void LoadPort()
     {
         if (!PlayerPrefs.HasKey("port"))
@@ -160,7 +166,22 @@ public class MenuController : MonoBehaviour
         portInputField.text = PlayerPrefs.GetInt("port").ToString();
     }
 
+    public void ChangeSensitivity(float sensitivityValue)
+    {
+        sensitivity = sensitivityValue;
+        PlayerPrefs.SetFloat("sensitivity", sensitivity);
+    }
 
+    private void LoadSensitivity()
+    {
+        if (!PlayerPrefs.HasKey("sensitivity"))
+        {
+            PlayerPrefs.SetFloat("sensitivity", 0.5f);
+        }
+
+        sensitivity = PlayerPrefs.GetFloat("sensitivity");
+        sensitivitySlider.value = sensitivity;
+    }
 
     public void SetFullscreen(bool setFullscreen)
     {
@@ -183,8 +204,14 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("time");
         LoadTime();
 
+        PlayerPrefs.DeleteKey("difficulty");
+        LoadDifficulty();
+
         PlayerPrefs.DeleteKey("port");
         LoadPort();
+
+        PlayerPrefs.DeleteKey("sensitivity");
+        LoadSensitivity();
        
         PlayerPrefs.DeleteKey("soundVolume");
         FindFirstObjectByType<AudioManager>()?.LoadSoundVolume();
@@ -192,8 +219,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.DeleteKey("musicVolume");
         FindFirstObjectByType<AudioManager>()?.LoadMusicVolume();
 
-        PlayerPrefs.DeleteKey("difficulty");
-        LoadDifficulty();
+
     }
 
     public void SelectLevel(int levelnumber)

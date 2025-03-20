@@ -22,8 +22,19 @@ public class PlayerMovement : MonoBehaviour
     float x_Axis = 0;
     float y_Axis = 0;
 
+    public float sensitivity = 0.5f;
+
     bool isEnabled = true;
 
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("sensitivity"))
+        {
+            sensitivity = PlayerPrefs.GetFloat("sensitivity");
+            Debug.Log("Sensitivity: " + sensitivity);
+        }
+    }
+    
     void Update()
     {
         if(client.socketOpen)
@@ -51,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
                     y_Axis = float.Parse(inputValues[2], CultureInfo.InvariantCulture);
                 }
 
-                if(Mathf.Abs(x_Axis) > 0.4f) // evt 0.3?
+                if(Mathf.Abs(x_Axis) > 0.3f) // to prevent unintentional movement input
                 {   
-                    var x = -x_Axis/2f;
+                    var x = -x_Axis*sensitivity;
                     movement.x = x;
                 }
                 else 
@@ -62,9 +73,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 
-                if(Mathf.Abs(y_Axis) > 0.25f) // evt 0.2?
+                if(Mathf.Abs(y_Axis) > 0.3f) // to prevent unintentional movement input
                 {   
-                    var y = -y_Axis/2f;
+                    var y = -y_Axis*sensitivity;
                     
                     if(y < 0) 
                     {

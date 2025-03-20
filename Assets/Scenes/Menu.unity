@@ -2657,6 +2657,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &320107165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3823,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &376813601
 GameObject:
   m_ObjectHideFlags: 0
@@ -4824,8 +4828,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 107750252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5564,7 +5568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "5555\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5655,6 +5659,7 @@ GameObject:
   - component: {fileID: 608443491}
   - component: {fileID: 608443490}
   - component: {fileID: 608443489}
+  - component: {fileID: 608443492}
   m_Layer: 0
   m_Name: PortInputField
   m_TagString: Untagged
@@ -5743,7 +5748,19 @@ MonoBehaviour:
   m_CharacterLimit: 5
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 608443492}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ChangePort
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -5821,6 +5838,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608443487}
   m_CullTransparentMesh: 1
+--- !u!114 &608443492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608443487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9023cb35cea0d24880b5c6cdda3a4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdown: 0
+  countdownSlider: {fileID: 1820011138}
+  countdownSliderValue: {fileID: 756136461}
+  time: 0
+  timeSlider: {fileID: 1797919592}
+  timeSliderValue: {fileID: 320107166}
+  difficulty: 0
+  difficultyDropdown: {fileID: 1711153352}
+  resolutionDropdown: {fileID: 1303131580}
+  port: 0
+  portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &613009176
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,6 +7192,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!850595691 &785922031
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -7165,7 +7209,7 @@ LightingSettings:
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
-  m_BakeBackend: 1
+  m_BakeBackend: 2
   m_LightmapMaxSize: 1024
   m_LightmapSizeFixed: 0
   m_UseMipmapLimits: 1
@@ -7422,6 +7466,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &849172102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7592,7 +7638,7 @@ RectTransform:
   m_Father: {fileID: 87742301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10500,6 +10546,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!114 &1303131580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13141,6 +13189,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &1631198761
 GameObject:
   m_ObjectHideFlags: 0
@@ -13873,6 +13923,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &1727128966
 GameObject:
   m_ObjectHideFlags: 0
@@ -14139,7 +14191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -144.9, y: -17.766}
+  m_AnchoredPosition: {x: -147, y: -17.766}
   m_SizeDelta: {x: 41.307, y: 28.4678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749078380
@@ -14747,6 +14799,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!114 &1797919592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15010,6 +15064,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 177746645}
 --- !u!114 &1820011138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17151,6 +17207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065317010}
   - component: {fileID: 2065317012}
+  - component: {fileID: 2065317013}
   m_Layer: 0
   m_Name: SensitivitySlider
   m_TagString: Untagged
@@ -17225,16 +17282,16 @@ MonoBehaviour:
   m_HandleRect: {fileID: 448822583}
   m_Direction: 0
   m_MinValue: 0.1
-  m_MaxValue: 1
+  m_MaxValue: 1.9
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2065317013}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ChangeSensitivity
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17243,6 +17300,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2065317013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065317009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9023cb35cea0d24880b5c6cdda3a4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdown: 0
+  countdownSlider: {fileID: 1820011138}
+  countdownSliderValue: {fileID: 756136461}
+  time: 0
+  timeSlider: {fileID: 1797919592}
+  timeSliderValue: {fileID: 320107166}
+  difficulty: 0
+  difficultyDropdown: {fileID: 1711153352}
+  resolutionDropdown: {fileID: 1303131580}
+  port: 0
+  portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &2069427890
 GameObject:
   m_ObjectHideFlags: 0
@@ -17580,6 +17662,8 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1303131580}
   port: 0
   portInputField: {fileID: 608443489}
+  sensitivity: 0
+  sensitivitySlider: {fileID: 2065317012}
 --- !u!1 &2117305964
 GameObject:
   m_ObjectHideFlags: 0
