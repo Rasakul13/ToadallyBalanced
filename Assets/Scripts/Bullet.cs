@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = transform.right * 5;
+        rb.linearVelocity = transform.right * 5;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

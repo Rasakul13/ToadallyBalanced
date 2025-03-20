@@ -35,8 +35,12 @@ public class GameManager : MonoBehaviour
 
     private int difficulty;
 
+    private int port;
+
     void Awake()
     {
+        port = PlayerPrefs.GetInt("port", 5555);
+
         countdown = (int)PlayerPrefs.GetFloat("countdown");
         countdownController.StartCountdown(countdown);
         
@@ -45,7 +49,7 @@ public class GameManager : MonoBehaviour
         
         difficulty = (int)PlayerPrefs.GetFloat("difficulty");
         hp = 5-difficulty;
-        
+
         switch(difficulty)
         {
             case 0:
@@ -97,7 +101,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Start Game");
         
         //client.CreateSocket(5555, "192.168.0.31");
-        client.CreateSocket(5555);
+        client.CreateSocket(port);
         timer.StartTimer();
         FindObjectOfType<SpawnManager>().StartSpawn();
 

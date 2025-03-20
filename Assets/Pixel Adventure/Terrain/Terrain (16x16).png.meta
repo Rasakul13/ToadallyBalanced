@@ -213,7 +213,7 @@ TextureImporter:
       213: -5771860391718596916
     second: Terrain (16x16)_0
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -230,9 +230,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -242,8 +245,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -264,9 +267,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -278,6 +287,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -290,6 +300,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -311,7 +322,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6ae220f83998e11d0800000000000000
-      internalID: -3378111403628810586
+      internalID: 2492004042214043949
       vertices: []
       indices: 
       edges: []
@@ -332,7 +343,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c9fb2912aea556010800000000000000
-      internalID: 1181450438886735772
+      internalID: 397718093594370940
       vertices: []
       indices: 
       edges: []
@@ -353,7 +364,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3de1bbed0b8459da0800000000000000
-      internalID: -5938760609129881901
+      internalID: 4716054802376701170
       vertices: []
       indices: 
       edges: []
@@ -374,7 +385,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b5cc06a8994c7ac50800000000000000
-      internalID: 6676521136330689627
+      internalID: -8620202154233844528
       vertices: []
       indices: 
       edges: []
@@ -395,7 +406,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e74c2c7d330df26b0800000000000000
-      internalID: -5318803713819491202
+      internalID: -7517053698926566003
       vertices: []
       indices: 
       edges: []
@@ -416,7 +427,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8c88aea676e33b200800000000000000
-      internalID: 194567822803372232
+      internalID: 3020870990670601969
       vertices: []
       indices: 
       edges: []
@@ -437,7 +448,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 00c1bf19fbdd1c950800000000000000
-      internalID: 6467694354738387968
+      internalID: 1685935324672158413
       vertices: []
       indices: 
       edges: []
@@ -458,7 +469,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cbd1187536d0fcc40800000000000000
-      internalID: 5534657187382631868
+      internalID: 8022139226935704013
       vertices: []
       indices: 
       edges: []
@@ -479,7 +490,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: dc039b8c127cb3fd0800000000000000
-      internalID: -2361074631710265139
+      internalID: 5587568460378422633
       vertices: []
       indices: 
       edges: []
@@ -500,7 +511,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 093781a52d5df2050800000000000000
-      internalID: 5778071946371036048
+      internalID: 4987498479824627636
       vertices: []
       indices: 
       edges: []
@@ -521,7 +532,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: da3ffcb5a732ce100800000000000000
-      internalID: 138524696974980013
+      internalID: 6480251376165907240
       vertices: []
       indices: 
       edges: []
@@ -542,7 +553,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8cad1ff690d1e8350800000000000000
-      internalID: 6020781678210964168
+      internalID: -8795747966950415410
       vertices: []
       indices: 
       edges: []
@@ -563,7 +574,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2cfb9c68404658340800000000000000
-      internalID: 4865404943047704514
+      internalID: 8471289998749917440
       vertices: []
       indices: 
       edges: []
@@ -584,7 +595,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cce477aed8b36efa0800000000000000
-      internalID: -5771860391718596916
+      internalID: -4874278423985981231
       vertices: []
       indices: 
       edges: []
@@ -683,9 +694,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Terrain (16x16)_0: -4874278423985981231
+      Terrain (16x16)_1: 2492004042214043949
+      Terrain (16x16)_10: 5587568460378422633
+      Terrain (16x16)_11: 4987498479824627636
+      Terrain (16x16)_12: 6480251376165907240
+      Terrain (16x16)_13: -8795747966950415410
+      Terrain (16x16)_14: 4154186551387008257
+      Terrain (16x16)_15: -7850267199778421155
+      Terrain (16x16)_16: 8102182086558406705
+      Terrain (16x16)_17: 6918280329820428914
+      Terrain (16x16)_2: 8471289998749917440
+      Terrain (16x16)_3: 397718093594370940
+      Terrain (16x16)_4: 4716054802376701170
+      Terrain (16x16)_5: -8620202154233844528
+      Terrain (16x16)_6: -7517053698926566003
+      Terrain (16x16)_7: 3020870990670601969
+      Terrain (16x16)_8: 1685935324672158413
+      Terrain (16x16)_9: 8022139226935704013
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

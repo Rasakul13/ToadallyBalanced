@@ -22,11 +22,19 @@ public class MenuController : MonoBehaviour
     Resolution[] resolutions;
     [SerializeField] TMP_Dropdown resolutionDropdown;
 
+    public int port;
+    [SerializeField] private TMP_InputField portInputField;
+
+
     public void Start()
-    {
+    {   
+        portInputField.onValueChanged.AddListener(ChangePort);
+        // portInputField.onEndEdit.AddListener(ChangePort); 
+
         LoadCountdown();
         LoadTime();
         LoadDifficulty();
+        LoadPort();
 
         /*
         resolutions = Screen.resolutions;
@@ -128,6 +136,32 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("difficulty", difficultyDropdown.value);
     }
 
+    public void ChangePort(string portString)
+    {
+        if (int.TryParse(portString, out int port) && port > 0 && port < 65536)
+        {
+            PlayerPrefs.SetInt("port", port);
+            Debug.Log($"Port set to: {port}");
+        }
+        else
+        {
+            Debug.LogWarning("Invalid port number. Please enter a value between 1 and 65535.");
+        }
+    }
+
+ 
+    private void LoadPort()
+    {
+        if (!PlayerPrefs.HasKey("port"))
+        {
+            PlayerPrefs.SetInt("port", 5555);
+        }
+
+        portInputField.text = PlayerPrefs.GetInt("port").ToString();
+    }
+
+
+
     public void SetFullscreen(bool setFullscreen)
     {
         Screen.fullScreen = !setFullscreen;
@@ -148,6 +182,9 @@ public class MenuController : MonoBehaviour
 
         PlayerPrefs.DeleteKey("time");
         LoadTime();
+
+        PlayerPrefs.DeleteKey("port");
+        LoadPort();
        
         PlayerPrefs.DeleteKey("soundVolume");
         FindObjectOfType<AudioManager>().LoadSoundVolume();

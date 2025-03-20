@@ -28,7 +28,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if(client.socketOpen)
         {
-            input = client.ReceiveData(); 
+            input = client.ReceiveData();
+
+            if(!String.IsNullOrEmpty(input)) {
+                print(input);
+            }
+
 
             if(!String.IsNullOrEmpty(input) && input.Contains(" 83,")) 
             {   
@@ -46,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
                     y_Axis = float.Parse(inputValues[2], CultureInfo.InvariantCulture);
                 }
 
-                if(Mathf.Abs(x_Axis) > 0.4f)
+                if(Mathf.Abs(x_Axis) > 0.4f) // evt 0.3?
                 {   
                     var x = -x_Axis/2f;
                     movement.x = x;
@@ -57,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 
-                if(Mathf.Abs(y_Axis) > 0.25f)
+                if(Mathf.Abs(y_Axis) > 0.25f) // evt 0.2?
                 {   
                     var y = -y_Axis/2f;
                     
