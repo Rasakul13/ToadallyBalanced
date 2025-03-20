@@ -30,14 +30,14 @@ public class PlayerCollision : MonoBehaviour
                 Debug.Log("Player hit " + collision.collider.name);
                 
                 // -1 HP 
-                FindObjectOfType<GameManager>().TakeDamage();
+                FindFirstObjectByType<GameManager>()?.TakeDamage();
 
                 movement.enabled = false;
                 //movement.setMovementBool(false);
                 
                 animator.Play("DisappearingAnimation", 0, 3f);
 
-                if(player && FindObjectOfType<GameManager>().gameHasEnded == false)
+                if(player && FindFirstObjectByType<GameManager>()?.gameHasEnded == false)
                 {   
                     StartCoroutine(ResetCoroutine(3.0f));
                 }
@@ -61,7 +61,7 @@ public class PlayerCollision : MonoBehaviour
         
         invulnerable = false;
 
-        FindObjectOfType<AudioManager>().Play("PlayerSpawn");
+        FindFirstObjectByType<AudioManager>()?.Play("PlayerSpawn");
 
     } 
 }

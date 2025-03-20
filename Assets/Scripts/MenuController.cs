@@ -187,10 +187,10 @@ public class MenuController : MonoBehaviour
         LoadPort();
        
         PlayerPrefs.DeleteKey("soundVolume");
-        FindObjectOfType<AudioManager>().LoadSoundVolume();
+        FindFirstObjectByType<AudioManager>()?.LoadSoundVolume();
 
         PlayerPrefs.DeleteKey("musicVolume");
-        FindObjectOfType<AudioManager>().LoadMusicVolume();
+        FindFirstObjectByType<AudioManager>()?.LoadMusicVolume();
 
         PlayerPrefs.DeleteKey("difficulty");
         LoadDifficulty();

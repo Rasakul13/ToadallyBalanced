@@ -29,14 +29,15 @@ public class PlayerTrigger : MonoBehaviour
             score.Increase(value);
 
             //play sound for collect item
-            FindObjectOfType<AudioManager>().Play("CollectItem");
+            FindFirstObjectByType<AudioManager>()?.Play("CollectItem"); // depricated version: FindObjectOfType<AudioManager>().Play("CollectItem");
+
         }
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         if(collider.CompareTag("Fruit") && 
-        score.scoreValue <FindObjectOfType<GameManager>().scoreGoalValue)
+        score.scoreValue <FindFirstObjectByType<GameManager>()?.scoreGoalValue)
         {   
             //Debug.Log("new fruit spawned");
             
@@ -71,9 +72,9 @@ public class PlayerTrigger : MonoBehaviour
      {
         yield return new WaitForSeconds(1f);
 
-        if(FindObjectOfType<GameManager>().gameHasEnded == false)
+        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == false)
         {
-            FindObjectOfType<SpawnManager>().SpawnFruit();
+            FindFirstObjectByType<SpawnManager>()?.SpawnFruit();
         }
      }
     

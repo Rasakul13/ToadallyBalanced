@@ -22,7 +22,7 @@ public class TrunkController : MonoBehaviour
     void Attack()
     {
         
-        if(FindObjectOfType<GameManager>().gameHasEnded == false)
+        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == false)
         {
             animator.SetBool("attack", true);
             StartCoroutine(WaitCoroutine(1.0f));
@@ -32,7 +32,7 @@ public class TrunkController : MonoBehaviour
     void ShootProjectile()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); 
-        FindObjectOfType<AudioManager>().Play("Shoot");
+        FindFirstObjectByType<AudioManager>()?.Play("Shoot");
 
         animator.SetBool("attack", false);
     }

@@ -26,7 +26,7 @@ public class TimerController : MonoBehaviour
 
     void Update() 
     {   
-        if(FindObjectOfType<GameManager>().gameHasEnded == true) {
+        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == true) {
             timerRunning = false;
         }
         
@@ -37,7 +37,7 @@ public class TimerController : MonoBehaviour
 
     void FixedUpdate()
     {   
-        if(FindObjectOfType<GameManager>().gameHasEnded == true) {
+        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == true) {
             timerRunning = false;
         }
 
@@ -48,7 +48,7 @@ public class TimerController : MonoBehaviour
             }
             else {
                 timer = 0f;
-                FindObjectOfType<GameManager>().GameEnd(false);
+                FindFirstObjectByType<GameManager>()?.GameEnd(false);
             }
         } 
     }

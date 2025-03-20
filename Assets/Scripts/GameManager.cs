@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         //client.CreateSocket(5555, "192.168.0.31");
         client.CreateSocket(port);
         timer.StartTimer();
-        FindObjectOfType<SpawnManager>().StartSpawn();
+        FindFirstObjectByType<SpawnManager>()?.StartSpawn();
 
         gameHasStarted = true;
 
@@ -148,17 +148,17 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("LEVEL ACCOMPLISHED");
                 levelAccomplished.GetComponent<Text>().enabled = true;
-                FindObjectOfType<AudioManager>().Play("LevelCompleted");
+                FindFirstObjectByType<AudioManager>()?.Play("LevelCompleted");
             }
             else
             {
                 Debug.Log("GAME OVER");
                 gameOver.GetComponent<Text>().enabled = true;
-                FindObjectOfType<AudioManager>().Play("GameOver");
+                FindFirstObjectByType<AudioManager>()?.Play("GameOver");
 
             }
 
-            FindObjectOfType<SpawnManager>().DespawnFruit();
+            FindFirstObjectByType<SpawnManager>()?.DespawnFruit();
             
             StartCoroutine(WaitCoroutine(1.0f));
             
@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
     
     public void TakeDamage()
     {
-        FindObjectOfType<AudioManager>().Play("PlayerDeath");
+        FindFirstObjectByType<AudioManager>()?.Play("PlayerDeath");
         if(hp > 1)
         {
             hp -= 1;

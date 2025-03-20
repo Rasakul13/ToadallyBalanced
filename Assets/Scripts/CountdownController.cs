@@ -25,7 +25,7 @@ public class CountdownController : MonoBehaviour
             
             if(countdownTime == 3) 
             {
-                FindObjectOfType<AudioManager>().Play("CountDown");
+                FindFirstObjectByType<AudioManager>()?.Play("CountDown");
             }
             
             countdownText.text = countdownTime.ToString();
@@ -37,7 +37,7 @@ public class CountdownController : MonoBehaviour
 
         countdownText.text = "GO!";
 
-        FindObjectOfType<GameManager>().BeginGame();
+        FindFirstObjectByType<GameManager>()?.BeginGame();
 
         yield return new WaitForSeconds(0.8f);
 

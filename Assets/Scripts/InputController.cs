@@ -15,11 +15,11 @@ public class InputController : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-             FindObjectOfType<GameManager>().Restart();
+             FindFirstObjectByType<GameManager>()?.Restart();
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-             FindObjectOfType<GameManager>().Quit();
+             FindFirstObjectByType<GameManager>()?.Quit();
         }
 
 
