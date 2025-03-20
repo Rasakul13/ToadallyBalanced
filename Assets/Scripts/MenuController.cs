@@ -28,8 +28,8 @@ public class MenuController : MonoBehaviour
 
     public void Start()
     {   
+        portInputField.onValueChanged.RemoveAllListeners();
         portInputField.onValueChanged.AddListener(ChangePort);
-        // portInputField.onEndEdit.AddListener(ChangePort); 
 
         LoadCountdown();
         LoadTime();
