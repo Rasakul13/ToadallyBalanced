@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class PlayerCollision : MonoBehaviour
 {   
+    private AudioManager audioManager;
+    private GameManager gameManager;
+
     public PlayerMovement movement;
 
     public Animator animator;
@@ -12,6 +15,13 @@ public class PlayerCollision : MonoBehaviour
     
     bool disappear;
     bool invulnerable;
+
+    void Awake()
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
+
 
     void Start()
     {
@@ -30,14 +40,14 @@ public class PlayerCollision : MonoBehaviour
                 Debug.Log("Player hit " + collision.collider.name);
                 
                 // -1 HP 
-                FindFirstObjectByType<GameManager>()?.TakeDamage();
+                gameManager?.TakeDamage();
 
                 movement.enabled = false;
                 //movement.setMovementBool(false);
                 
                 animator.Play("DisappearingAnimation", 0, 3f);
 
-                if(player && FindFirstObjectByType<GameManager>()?.gameHasEnded == false)
+                if(player && gameManager?.gameHasEnded == false)
                 {   
                     StartCoroutine(ResetCoroutine(3.0f));
                 }
@@ -61,7 +71,7 @@ public class PlayerCollision : MonoBehaviour
         
         invulnerable = false;
 
-        FindFirstObjectByType<AudioManager>()?.Play("PlayerSpawn");
+        audioManager?.Play("PlayerSpawn");
 
     } 
 }

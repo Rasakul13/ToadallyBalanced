@@ -7,7 +7,9 @@ using TMPro;
 using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
-{
+{   
+    private AudioManager audioManager;
+
     public float countdown;
     [SerializeField] Slider countdownSlider;
     [SerializeField] private TextMeshProUGUI countdownSliderValue;
@@ -28,6 +30,10 @@ public class MenuController : MonoBehaviour
     public float sensitivity;
     [SerializeField] Slider sensitivitySlider;
 
+    void Awake()
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+    }
 
     public void Start()
     {   
@@ -214,10 +220,10 @@ public class MenuController : MonoBehaviour
         LoadSensitivity();
        
         PlayerPrefs.DeleteKey("soundVolume");
-        FindFirstObjectByType<AudioManager>()?.LoadSoundVolume();
+        audioManager?.LoadSoundVolume();
 
         PlayerPrefs.DeleteKey("musicVolume");
-        FindFirstObjectByType<AudioManager>()?.LoadMusicVolume();
+        audioManager?.LoadMusicVolume();
 
 
     }

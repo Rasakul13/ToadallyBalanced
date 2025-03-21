@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
+    private GameManager gameManager;
     
     public Text timerText; 
     float timer;
 
     bool timerRunning;
+
+    void Awake()
+    {   
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
     
     public void SetTimer(float time)
     {
@@ -26,7 +32,7 @@ public class TimerController : MonoBehaviour
 
     void Update() 
     {   
-        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == true) {
+        if(gameManager?.gameHasEnded == true) {
             timerRunning = false;
         }
         
@@ -37,7 +43,7 @@ public class TimerController : MonoBehaviour
 
     void FixedUpdate()
     {   
-        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == true) {
+        if(gameManager?.gameHasEnded == true) {
             timerRunning = false;
         }
 
@@ -48,7 +54,7 @@ public class TimerController : MonoBehaviour
             }
             else {
                 timer = 0f;
-                FindFirstObjectByType<GameManager>()?.GameEnd(false);
+                gameManager?.GameEnd(false);
             }
         } 
     }

@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   
+    private AudioManager audioManager;
+    private SpawnManager spawnManager;
+
     public UdpSocket client;
 
     public Animator animator;
@@ -38,7 +41,10 @@ public class GameManager : MonoBehaviour
     private int port;
 
     void Awake()
-    {
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+        spawnManager = FindFirstObjectByType<SpawnManager>();
+
         port = PlayerPrefs.GetInt("port", 5555);
 
         countdown = (int)PlayerPrefs.GetFloat("countdown");
@@ -100,10 +106,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start Game");
         
-        //client.CreateSocket(5555, "192.168.0.31");
         client.CreateSocket(port);
         timer.StartTimer();
-        FindFirstObjectByType<SpawnManager>()?.StartSpawn();
+        spawnManager?.StartSpawn();
 
         gameHasStarted = true;
 
@@ -148,17 +153,17 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("LEVEL ACCOMPLISHED");
                 levelAccomplished.GetComponent<Text>().enabled = true;
-                FindFirstObjectByType<AudioManager>()?.Play("LevelCompleted");
+                audioManager?.Play("LevelCompleted");
             }
             else
             {
                 Debug.Log("GAME OVER");
                 gameOver.GetComponent<Text>().enabled = true;
-                FindFirstObjectByType<AudioManager>()?.Play("GameOver");
+                audioManager?.Play("GameOver");
 
             }
 
-            FindFirstObjectByType<SpawnManager>()?.DespawnFruit();
+            spawnManager?.DespawnFruit();
             
             StartCoroutine(WaitCoroutine(1.0f));
             
@@ -167,7 +172,7 @@ public class GameManager : MonoBehaviour
     
     public void TakeDamage()
     {
-        FindFirstObjectByType<AudioManager>()?.Play("PlayerDeath");
+        audioManager?.Play("PlayerDeath");
         if(hp > 1)
         {
             hp -= 1;

@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerTrigger : MonoBehaviour
 {   
+    private AudioManager audioManager;
+    private GameManager gameManager;
+    private SpawnManager spawnManager;
+
+
     public ScoreController score;
     int value = 100;
 
     public Vector2 position;
     public GameObject feedback;
+
+    void Awake()
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        spawnManager = FindFirstObjectByType<SpawnManager>();
+    }
 
     void Start()
     {   
@@ -29,7 +41,7 @@ public class PlayerTrigger : MonoBehaviour
             score.Increase(value);
 
             //play sound for collect item
-            FindFirstObjectByType<AudioManager>()?.Play("CollectItem"); // depricated version: FindObjectOfType<AudioManager>().Play("CollectItem");
+            audioManager?.Play("CollectItem"); // depricated version: FindObjectOfType<AudioManager>().Play("CollectItem");
 
         }
     }
@@ -37,7 +49,7 @@ public class PlayerTrigger : MonoBehaviour
     void OnTriggerExit2D(Collider2D collider)
     {
         if(collider.CompareTag("Fruit") && 
-        score.scoreValue <FindFirstObjectByType<GameManager>()?.scoreGoalValue)
+        score.scoreValue < gameManager?.scoreGoalValue)
         {   
             //Debug.Log("new fruit spawned");
             
@@ -72,9 +84,9 @@ public class PlayerTrigger : MonoBehaviour
      {
         yield return new WaitForSeconds(1f);
 
-        if(FindFirstObjectByType<GameManager>()?.gameHasEnded == false)
+        if(gameManager?.gameHasEnded == false)
         {
-            FindFirstObjectByType<SpawnManager>()?.SpawnFruit();
+            spawnManager?.SpawnFruit();
         }
      }
     

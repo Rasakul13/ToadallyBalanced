@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class CountdownController : MonoBehaviour
 {   
+    private AudioManager audioManager;
+    private GameManager gameManager;
 
     public int countdownTime;
     public Text countdownText;
+
+    void Awake()
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
 
     public void StartCountdown(int i)
     {
@@ -25,7 +33,7 @@ public class CountdownController : MonoBehaviour
             
             if(countdownTime == 3) 
             {
-                FindFirstObjectByType<AudioManager>()?.Play("CountDown");
+                audioManager?.Play("CountDown");
             }
             
             countdownText.text = countdownTime.ToString();
@@ -37,7 +45,7 @@ public class CountdownController : MonoBehaviour
 
         countdownText.text = "GO!";
 
-        FindFirstObjectByType<GameManager>()?.BeginGame();
+        gameManager?.BeginGame();
 
         yield return new WaitForSeconds(0.8f);
 
