@@ -100,11 +100,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {   
-
-        //while(enabled==true) {
-            // Movement
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        //}
+        // Movement
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     public void setMovementBool(bool boolean) {

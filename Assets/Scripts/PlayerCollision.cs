@@ -43,8 +43,7 @@ public class PlayerCollision : MonoBehaviour
                 gameManager?.TakeDamage();
 
                 movement.enabled = false;
-                //movement.setMovementBool(false);
-                
+
                 animator.Play("DisappearingAnimation", 0, 3f);
 
                 if(player && gameManager?.gameHasEnded == false)
@@ -60,18 +59,17 @@ public class PlayerCollision : MonoBehaviour
          
     }
 
-    
+    public void EnableMovement()
+    {
+        movement.enabled = true;
+        invulnerable = false;
+    }
+
     private IEnumerator ResetCoroutine(float delay)
     {
         yield return new WaitForSeconds(delay);
         player.transform.SetPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0,0,0)));
 
-        movement.enabled = true;
-        //movement.setMovementBool(true);
-        
-        invulnerable = false;
-
         audioManager?.Play("PlayerSpawn");
-
     } 
 }
