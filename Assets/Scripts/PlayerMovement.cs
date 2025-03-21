@@ -22,13 +22,29 @@ public class PlayerMovement : MonoBehaviour
     float x_Axis = 0;
     float y_Axis = 0;
 
+    public float sensitivity = 0.5f;
+
     bool isEnabled = true;
 
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("sensitivity"))
+        {
+            sensitivity = PlayerPrefs.GetFloat("sensitivity");
+            Debug.Log("Sensitivity: " + sensitivity);
+        }
+    }
+    
     void Update()
     {
         if(client.socketOpen)
         {
-            input = client.ReceiveData(); 
+            input = client.ReceiveData();
+
+            if(!String.IsNullOrEmpty(input)) {
+                print(input);
+            }
+
 
             if(!String.IsNullOrEmpty(input) && input.Contains(" 83,")) 
             {   
@@ -46,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
                     y_Axis = float.Parse(inputValues[2], CultureInfo.InvariantCulture);
                 }
 
-                if(Mathf.Abs(x_Axis) > 0.4f)
+                if(Mathf.Abs(x_Axis) > 0.3f) // to prevent unintentional movement input
                 {   
-                    var x = -x_Axis/2f;
+                    var x = -x_Axis*sensitivity;
                     movement.x = x;
                 }
                 else 
@@ -57,9 +73,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 
-                if(Mathf.Abs(y_Axis) > 0.25f)
+                if(Mathf.Abs(y_Axis) > 0.3f) // to prevent unintentional movement input
                 {   
-                    var y = -y_Axis/2f;
+                    var y = -y_Axis*sensitivity;
                     
                     if(y < 0) 
                     {
@@ -84,11 +100,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {   
-
-        //while(enabled==true) {
-            // Movement
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        //}
+        // Movement
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     public void setMovementBool(bool boolean) {

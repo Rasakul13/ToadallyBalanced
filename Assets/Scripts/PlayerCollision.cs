@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class PlayerCollision : MonoBehaviour
 {   
+    private AudioManager audioManager;
+    private GameManager gameManager;
+
     public PlayerMovement movement;
 
     public Animator animator;
@@ -12,6 +15,13 @@ public class PlayerCollision : MonoBehaviour
     
     bool disappear;
     bool invulnerable;
+
+    void Awake()
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
+
 
     void Start()
     {
@@ -30,14 +40,13 @@ public class PlayerCollision : MonoBehaviour
                 Debug.Log("Player hit " + collision.collider.name);
                 
                 // -1 HP 
-                FindObjectOfType<GameManager>().TakeDamage();
+                gameManager?.TakeDamage();
 
                 movement.enabled = false;
-                //movement.setMovementBool(false);
-                
+
                 animator.Play("DisappearingAnimation", 0, 3f);
 
-                if(player && FindObjectOfType<GameManager>().gameHasEnded == false)
+                if(player && gameManager?.gameHasEnded == false)
                 {   
                     StartCoroutine(ResetCoroutine(3.0f));
                 }
@@ -50,18 +59,17 @@ public class PlayerCollision : MonoBehaviour
          
     }
 
-    
+    public void EnableMovement()
+    {
+        movement.enabled = true;
+        invulnerable = false;
+    }
+
     private IEnumerator ResetCoroutine(float delay)
     {
         yield return new WaitForSeconds(delay);
         player.transform.SetPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0,0,0)));
 
-        movement.enabled = true;
-        //movement.setMovementBool(true);
-        
-        invulnerable = false;
-
-        FindObjectOfType<AudioManager>().Play("PlayerSpawn");
-
+        audioManager?.Play("PlayerSpawn");
     } 
 }

@@ -3,8 +3,14 @@ using System.Collections;
 
 public class InputController : MonoBehaviour
 {
+    private GameManager gameManager;
     private Coroutine co_HideCursor;
     
+    void Awake()
+    {   
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
+
     void Start()
     {
         Cursor.visible = true;
@@ -15,11 +21,11 @@ public class InputController : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-             FindObjectOfType<GameManager>().Restart();
+             gameManager?.Restart();
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-             FindObjectOfType<GameManager>().Quit();
+             gameManager?.Quit();
         }
 
 

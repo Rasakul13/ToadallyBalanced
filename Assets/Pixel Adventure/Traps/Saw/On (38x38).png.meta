@@ -51,7 +51,7 @@ TextureImporter:
       213: 4371525553659970132
     second: On (38x38)_7
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -68,9 +68,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,8 +83,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -102,9 +105,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -116,6 +125,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -128,6 +138,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -149,7 +160,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7ec7c84da26ffdcd0800000000000000
-      internalID: -2531033801743893273
+      internalID: -3049067163339015078
       vertices: []
       indices: 
       edges: []
@@ -170,7 +181,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 32280cb165ec7cdf0800000000000000
-      internalID: -159932392520252893
+      internalID: 5023087293052794153
       vertices: []
       indices: 
       edges: []
@@ -191,7 +202,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: fbd03f49b0ceaca70800000000000000
-      internalID: 8848143952410512831
+      internalID: 3635640145415724294
       vertices: []
       indices: 
       edges: []
@@ -212,7 +223,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2fe529f7fabbc0bd0800000000000000
-      internalID: -2662546917248835854
+      internalID: -3382226459320202674
       vertices: []
       indices: 
       edges: []
@@ -233,7 +244,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e266eed52433db090800000000000000
-      internalID: -8017195401512851922
+      internalID: 6766133057857300771
       vertices: []
       indices: 
       edges: []
@@ -254,7 +265,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f3cd5845892f563e0800000000000000
-      internalID: -2060974518385124289
+      internalID: -6071002419338243549
       vertices: []
       indices: 
       edges: []
@@ -275,7 +286,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1cda96f2f03051e20800000000000000
-      internalID: 3320563664010456513
+      internalID: -7001973787898513139
       vertices: []
       indices: 
       edges: []
@@ -296,7 +307,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 45202786457caac30800000000000000
-      internalID: 4371525553659970132
+      internalID: -7336932856281768672
       vertices: []
       indices: 
       edges: []
@@ -311,9 +322,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      On (38x38)_0: -3049067163339015078
+      On (38x38)_1: 5023087293052794153
+      On (38x38)_2: 3635640145415724294
+      On (38x38)_3: -3382226459320202674
+      On (38x38)_4: 6766133057857300771
+      On (38x38)_5: -6071002419338243549
+      On (38x38)_6: -7001973787898513139
+      On (38x38)_7: -7336932856281768672
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

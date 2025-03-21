@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   
+    private AudioManager audioManager;
+    private SpawnManager spawnManager;
+
     public UdpSocket client;
 
     public Animator animator;
@@ -35,8 +38,15 @@ public class GameManager : MonoBehaviour
 
     private int difficulty;
 
+    private int port;
+
     void Awake()
-    {
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+        spawnManager = FindFirstObjectByType<SpawnManager>();
+
+        port = PlayerPrefs.GetInt("port", 5555);
+
         countdown = (int)PlayerPrefs.GetFloat("countdown");
         countdownController.StartCountdown(countdown);
         
@@ -45,7 +55,7 @@ public class GameManager : MonoBehaviour
         
         difficulty = (int)PlayerPrefs.GetFloat("difficulty");
         hp = 5-difficulty;
-        
+
         switch(difficulty)
         {
             case 0:
@@ -96,10 +106,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start Game");
         
-        //client.CreateSocket(5555, "192.168.0.31");
-        client.CreateSocket(5555);
+        client.CreateSocket(port);
         timer.StartTimer();
-        FindObjectOfType<SpawnManager>().StartSpawn();
+        spawnManager?.StartSpawn();
 
         gameHasStarted = true;
 
@@ -144,17 +153,17 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("LEVEL ACCOMPLISHED");
                 levelAccomplished.GetComponent<Text>().enabled = true;
-                FindObjectOfType<AudioManager>().Play("LevelCompleted");
+                audioManager?.Play("LevelCompleted");
             }
             else
             {
                 Debug.Log("GAME OVER");
                 gameOver.GetComponent<Text>().enabled = true;
-                FindObjectOfType<AudioManager>().Play("GameOver");
+                audioManager?.Play("GameOver");
 
             }
 
-            FindObjectOfType<SpawnManager>().DespawnFruit();
+            spawnManager?.DespawnFruit();
             
             StartCoroutine(WaitCoroutine(1.0f));
             
@@ -163,7 +172,7 @@ public class GameManager : MonoBehaviour
     
     public void TakeDamage()
     {
-        FindObjectOfType<AudioManager>().Play("PlayerDeath");
+        audioManager?.Play("PlayerDeath");
         if(hp > 1)
         {
             hp -= 1;

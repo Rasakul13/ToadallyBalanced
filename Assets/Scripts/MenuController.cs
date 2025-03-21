@@ -7,7 +7,9 @@ using TMPro;
 using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
-{
+{   
+    private AudioManager audioManager;
+
     public float countdown;
     [SerializeField] Slider countdownSlider;
     [SerializeField] private TextMeshProUGUI countdownSliderValue;
@@ -22,11 +24,24 @@ public class MenuController : MonoBehaviour
     Resolution[] resolutions;
     [SerializeField] TMP_Dropdown resolutionDropdown;
 
+    public int port;
+    [SerializeField] private TMP_InputField portInputField;
+
+    public float sensitivity;
+    [SerializeField] Slider sensitivitySlider;
+
+    void Awake()
+    {   
+        audioManager = FindFirstObjectByType<AudioManager>();
+    }
+
     public void Start()
-    {
+    {   
         LoadCountdown();
         LoadTime();
         LoadDifficulty();
+        LoadPort();
+        LoadSensitivity();
 
         /*
         resolutions = Screen.resolutions;
@@ -128,6 +143,52 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("difficulty", difficultyDropdown.value);
     }
 
+
+    public void ChangePort(string portString)
+    {
+        if (int.TryParse(portString, out int port) && port > 0 && port < 65536)
+        {
+            PlayerPrefs.SetInt("port", port);
+            Debug.Log($"Port set to: {port}");
+        }
+        else
+        {
+            Debug.LogWarning("Invalid port number. Please enter a value between 1 and 65535.");
+
+            port = PlayerPrefs.GetInt("port", 5555);
+            portInputField.text = port.ToString();
+            PlayerPrefs.SetInt("port", port);
+            Debug.Log($"Port set to fallback: {port}");
+        }
+    }
+
+    private void LoadPort()
+    {
+        if (!PlayerPrefs.HasKey("port"))
+        {
+            PlayerPrefs.SetInt("port", 5555);
+        }
+
+        portInputField.text = PlayerPrefs.GetInt("port").ToString();
+    }
+
+    public void ChangeSensitivity(float sensitivityValue)
+    {
+        sensitivity = sensitivityValue;
+        PlayerPrefs.SetFloat("sensitivity", sensitivity);
+    }
+
+    private void LoadSensitivity()
+    {
+        if (!PlayerPrefs.HasKey("sensitivity"))
+        {
+            PlayerPrefs.SetFloat("sensitivity", 0.5f);
+        }
+
+        sensitivity = PlayerPrefs.GetFloat("sensitivity");
+        sensitivitySlider.value = sensitivity;
+    }
+
     public void SetFullscreen(bool setFullscreen)
     {
         Screen.fullScreen = !setFullscreen;
@@ -148,15 +209,23 @@ public class MenuController : MonoBehaviour
 
         PlayerPrefs.DeleteKey("time");
         LoadTime();
-       
-        PlayerPrefs.DeleteKey("soundVolume");
-        FindObjectOfType<AudioManager>().LoadSoundVolume();
-
-        PlayerPrefs.DeleteKey("musicVolume");
-        FindObjectOfType<AudioManager>().LoadMusicVolume();
 
         PlayerPrefs.DeleteKey("difficulty");
         LoadDifficulty();
+
+        PlayerPrefs.DeleteKey("port");
+        LoadPort();
+
+        PlayerPrefs.DeleteKey("sensitivity");
+        LoadSensitivity();
+       
+        PlayerPrefs.DeleteKey("soundVolume");
+        audioManager?.LoadSoundVolume();
+
+        PlayerPrefs.DeleteKey("musicVolume");
+        audioManager?.LoadMusicVolume();
+
+
     }
 
     public void SelectLevel(int levelnumber)
