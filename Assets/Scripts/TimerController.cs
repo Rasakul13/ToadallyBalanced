@@ -54,7 +54,7 @@ public class TimerController : MonoBehaviour
             }
             else {
                 timer = 0f;
-                gameManager?.GameEnd(false);
+                gameManager?.GameEnd(false, false);
             }
         } 
     }

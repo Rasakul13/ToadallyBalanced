@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerMovement movement;
 
+    public VASDialogController vasDialogController;
     public Text gameOver;
     public Text levelAccomplished;
     public bool gameHasEnded;
@@ -98,7 +99,7 @@ public class GameManager : MonoBehaviour
         hpCounter.text = hp.ToString(); 
 
         if(score.scoreValue == scoreGoalValue && gameHasEnded == false) {
-            GameEnd(true);
+            GameEnd(true, false);
         }
     }
 
@@ -130,12 +131,15 @@ public class GameManager : MonoBehaviour
         if(gameHasStarted) 
         {
             client.CloseSocket();
+            GameEnd(false, true);
         }
-
-        SceneManager.LoadScene(0);
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
-    public void GameEnd(bool accomplished)
+    public void GameEnd(bool accomplished, bool quitButtonClicked)
     {   
         if(gameHasEnded == false) 
         {
@@ -164,9 +168,17 @@ public class GameManager : MonoBehaviour
             }
 
             spawnManager?.DespawnFruit();
-            
-            StartCoroutine(WaitCoroutine(1.0f));
-            
+
+            if(quitButtonClicked == true)
+            {
+                StartCoroutine(HideGameElements(0.5f));
+                StartCoroutine(DelayedShowDialog(2.0f));
+            }
+            else 
+            {
+                StartCoroutine(HideGameElements(1.0f));
+                StartCoroutine(DelayedShowDialog(20f)); // Wait 20s, then show dialog
+            }
         }
     }
     
@@ -180,14 +192,22 @@ public class GameManager : MonoBehaviour
         else
         {   
             hp = 0;
-            GameEnd(false);
+            GameEnd(false, false);
         }
     }
 
-    private IEnumerator WaitCoroutine(float delay)
+
+
+    private IEnumerator HideGameElements(float delay)
     {
         yield return new WaitForSeconds(delay);
         player.SetActive(false);
         GameObject.FindWithTag("Feedback").SetActive(false);
-    } 
+    }
+
+    private IEnumerator DelayedShowDialog(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        vasDialogController.ShowDialog();
+    }
 }
