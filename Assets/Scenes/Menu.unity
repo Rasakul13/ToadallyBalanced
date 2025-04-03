@@ -7140,7 +7140,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776712559}
-  - component: {fileID: 776712560}
   m_Layer: 0
   m_Name: PortSetting
   m_TagString: Untagged
@@ -7169,31 +7168,6 @@ RectTransform:
   m_AnchoredPosition: {x: 314.31998, y: -272.53}
   m_SizeDelta: {x: 491.86, y: 41.4666}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &776712560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776712558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9023cb35cea0d24880b5c6cdda3a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdown: 0
-  countdownSlider: {fileID: 1820011138}
-  countdownSliderValue: {fileID: 756136461}
-  time: 0
-  timeSlider: {fileID: 1797919592}
-  timeSliderValue: {fileID: 320107166}
-  difficulty: 0
-  difficultyDropdown: {fileID: 1711153352}
-  resolutionDropdown: {fileID: 1303131580}
-  port: 0
-  portInputField: {fileID: 608443489}
-  sensitivity: 0
-  sensitivitySlider: {fileID: 2065317012}
 --- !u!850595691 &785922031
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -14746,7 +14720,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1797919590}
   - component: {fileID: 1797919592}
-  - component: {fileID: 1797919591}
   m_Layer: 0
   m_Name: TimeSlider
   m_TagString: Untagged
@@ -14776,31 +14749,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000000016298, y: -41.13}
   m_SizeDelta: {x: 252.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1797919591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797919589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9023cb35cea0d24880b5c6cdda3a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdown: 0
-  countdownSlider: {fileID: 1820011138}
-  countdownSliderValue: {fileID: 756136461}
-  time: 0
-  timeSlider: {fileID: 1797919592}
-  timeSliderValue: {fileID: 320107166}
-  difficulty: 0
-  difficultyDropdown: {fileID: 1711153352}
-  resolutionDropdown: {fileID: 1303131580}
-  port: 0
-  portInputField: {fileID: 608443489}
-  sensitivity: 0
-  sensitivitySlider: {fileID: 2065317012}
 --- !u!114 &1797919592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14852,7 +14800,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1797919591}
+      - m_Target: {fileID: 376398395}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: ChangeTime
         m_Mode: 1
@@ -15011,7 +14959,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1820011136}
   - component: {fileID: 1820011138}
-  - component: {fileID: 1820011137}
   m_Layer: 0
   m_Name: CountdownSlider
   m_TagString: Untagged
@@ -15041,31 +14988,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000000016298, y: -41.13}
   m_SizeDelta: {x: 252.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1820011137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820011135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9023cb35cea0d24880b5c6cdda3a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdown: 0
-  countdownSlider: {fileID: 1820011138}
-  countdownSliderValue: {fileID: 756136461}
-  time: 0
-  timeSlider: {fileID: 1797919592}
-  timeSliderValue: {fileID: 320107166}
-  difficulty: 0
-  difficultyDropdown: {fileID: 1711153352}
-  resolutionDropdown: {fileID: 1303131580}
-  port: 0
-  portInputField: {fileID: 608443489}
-  sensitivity: 0
-  sensitivitySlider: {fileID: 177746645}
 --- !u!114 &1820011138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15117,7 +15039,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1820011137}
+      - m_Target: {fileID: 376398395}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: ChangeCountdown
         m_Mode: 1
