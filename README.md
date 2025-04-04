@@ -8,7 +8,7 @@ The game tracks real-time movement through a companion Android application that 
 
 ## 📥 Download & Installation
 
-### ▶️ Application Builds
+### 📦 Application Builds
 
 Download the version of the application that matches your system:
 
