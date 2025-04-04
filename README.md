@@ -30,7 +30,7 @@ Download the version of the application that matches your system:
 To enable real-time interaction with the smiley visuals using your phone's gravity sensor, download the companion Android app:
 
 - **Gravity Streaming App (Android APK)**  
-  [Download APK]([https://your-download-link.com/gravity-app](https://github.com/Rasakul13/Gravity-App/releases/tag/v1.0.0))
+  [Download APK](https://github.com/Rasakul13/Gravity-App/releases/tag/v1.0.0)
 
 After installing the app on your Android device:
 
