@@ -1,4 +1,4 @@
-# ToadallyBalanced: A Rehabilitation Serious Game
+# 🐸 ToadallyBalanced: A Rehabilitation Serious Game
 
 This Unity-based application is a **serious game** designed to support **rehabilitation exercises** using a **balance board**. It provides an interactive and motivating environment for patients recovering from lower limb injuries or working on balance and coordination.
 
