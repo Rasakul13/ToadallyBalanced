@@ -5125,8 +5125,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 344888835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6611,7 +6611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1192661917
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6689,7 +6689,6 @@ MonoBehaviour:
   vasDialog: {fileID: 1192661916}
   submitButton: {fileID: 178502628}
   painSlider: {fileID: 1992616790}
-  painSliderValue: {fileID: 0}
   noteInputField: {fileID: 1352138703}
 --- !u!1 &1198318873
 GameObject:
@@ -7821,7 +7820,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.0286613
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8330,7 +8329,7 @@ RectTransform:
   m_Father: {fileID: 1842397721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

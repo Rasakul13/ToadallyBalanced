@@ -15,7 +15,6 @@ public class VASDialogController : MonoBehaviour
     public Button submitButton;
 
     [SerializeField] Slider painSlider;
-    [SerializeField] private TextMeshProUGUI painSliderValue;
 
     [SerializeField] private TMP_InputField noteInputField;
 
