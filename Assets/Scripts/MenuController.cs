@@ -230,6 +230,8 @@ public class MenuController : MonoBehaviour
 
     public void SelectLevel(int levelnumber)
     {
+        PlayerPrefs.SetInt("currentLevel", levelnumber);
+        
         Debug.Log("Load Level " + levelnumber.ToString());
         SceneManager.LoadScene(levelnumber);
     }

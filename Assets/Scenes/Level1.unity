@@ -9012,7 +9012,8 @@ MonoBehaviour:
   movement: {fileID: 678974262}
   vasDialogController: {fileID: 1192661920}
   gameOver: {fileID: 2085414423}
-  levelAccomplished: {fileID: 380250483}
+  levelCompletedText: {fileID: 380250483}
+  levelCompleted: 0
   gameHasEnded: 0
   countdownController: {fileID: 1743014159}
   countdown: 0

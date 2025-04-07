@@ -54,7 +54,7 @@ public class TimerController : MonoBehaviour
             }
             else {
                 timer = 0f;
-                gameManager?.GameEnd(false, false);
+                gameManager?.GameEnd(false);
             }
         } 
     }
@@ -67,6 +67,11 @@ public class TimerController : MonoBehaviour
         float seconds = Mathf.FloorToInt(time%60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public float GetRemainingTime()
+    {
+        return timer;
     }
 
 }

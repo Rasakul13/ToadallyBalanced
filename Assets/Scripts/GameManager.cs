@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
 
     public VASDialogController vasDialogController;
     public Text gameOver;
-    public Text levelAccomplished;
+    public Text levelCompletedText;
+    public bool levelCompleted;
     public bool gameHasEnded;
 
     public CountdownController countdownController;
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
     private int hp;
 
     private int difficulty;
+
+    public int currentLevel;
 
     private int port;
 
@@ -70,6 +73,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+
         scoreGoalValue = (int)timerValue * scoreGoalMultiplier;
 
         if(scoreGoalValue%100 == 50) 
@@ -87,8 +92,9 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         gameHasEnded = false;
+        levelCompleted = false;
         gameOver.GetComponent<Text>().enabled = false;
-        levelAccomplished.GetComponent<Text>().enabled = false;
+        levelCompletedText.GetComponent<Text>().enabled = false;
     }
 
     void Update()
@@ -99,7 +105,8 @@ public class GameManager : MonoBehaviour
         hpCounter.text = hp.ToString(); 
 
         if(score.scoreValue == scoreGoalValue && gameHasEnded == false) {
-            GameEnd(true, false);
+            levelCompleted = true;
+            GameEnd(false);
         }
     }
 
@@ -131,7 +138,7 @@ public class GameManager : MonoBehaviour
         if(gameHasStarted) 
         {
             client.CloseSocket();
-            GameEnd(false, true);
+            GameEnd(true);
         }
         else
         {
@@ -139,7 +146,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameEnd(bool accomplished, bool quitButtonClicked)
+    public void GameEnd(bool quitButtonClicked)
     {   
         if(gameHasEnded == false) 
         {
@@ -153,10 +160,10 @@ public class GameManager : MonoBehaviour
 
             client.CloseSocket();
 
-            if(accomplished == true)
+            if(levelCompleted)
             {
                 Debug.Log("LEVEL ACCOMPLISHED");
-                levelAccomplished.GetComponent<Text>().enabled = true;
+                levelCompletedText.GetComponent<Text>().enabled = true;
                 audioManager?.Play("LevelCompleted");
             }
             else
@@ -177,7 +184,7 @@ public class GameManager : MonoBehaviour
             else 
             {
                 StartCoroutine(HideGameElements(1.0f));
-                StartCoroutine(DelayedShowDialog(20f)); // Wait 20s, then show dialog
+                StartCoroutine(DelayedShowDialog(4.0f));
             }
         }
     }
@@ -192,7 +199,7 @@ public class GameManager : MonoBehaviour
         else
         {   
             hp = 0;
-            GameEnd(false, false);
+            GameEnd(false);
         }
     }
 
