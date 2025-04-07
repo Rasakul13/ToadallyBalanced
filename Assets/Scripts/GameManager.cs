@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {   
     private AudioManager audioManager;
     private SpawnManager spawnManager;
-
-    public UdpSocket client;
 
     public Animator animator;
 
@@ -42,14 +41,10 @@ public class GameManager : MonoBehaviour
 
     public int currentLevel;
 
-    private int port;
-
     void Awake()
     {   
         audioManager = FindFirstObjectByType<AudioManager>();
         spawnManager = FindFirstObjectByType<SpawnManager>();
-
-        port = PlayerPrefs.GetInt("port", 5555);
 
         countdown = (int)PlayerPrefs.GetFloat("countdown");
         countdownController.StartCountdown(countdown);
@@ -89,6 +84,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {   
+        UdpManager.Instance.CreateSocket();
+        movement.enabled = false;
+
+        UdpManager.Instance.StartConnectionCheck(countdown);
+
         player = GameObject.FindWithTag("Player");
 
         gameHasEnded = false;
@@ -111,23 +111,20 @@ public class GameManager : MonoBehaviour
     }
 
     public void BeginGame() 
-    {
+    {   
         Debug.Log("Start Game");
-        
-        client.CreateSocket(port);
+        movement.enabled = true;
         timer.StartTimer();
         spawnManager?.StartSpawn();
 
         gameHasStarted = true;
-
-
     }
 
     public void Restart()
     {   
         if(gameHasStarted) 
         {
-            client.CloseSocket();
+            UdpManager.Instance.CloseSocket();
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -137,7 +134,7 @@ public class GameManager : MonoBehaviour
     {   
         if(gameHasStarted) 
         {
-            client.CloseSocket();
+            UdpManager.Instance.CloseSocket();
             GameEnd(true);
         }
         else
@@ -158,7 +155,7 @@ public class GameManager : MonoBehaviour
 
             
 
-            client.CloseSocket();
+            UdpManager.Instance.CloseSocket();
 
             if(levelCompleted)
             {
@@ -202,8 +199,6 @@ public class GameManager : MonoBehaviour
             GameEnd(false);
         }
     }
-
-
 
     private IEnumerator HideGameElements(float delay)
     {

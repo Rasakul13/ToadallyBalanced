@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using System.Text;
 using UnityEngine;
 
@@ -9,16 +8,13 @@ public class UdpSocket : MonoBehaviour
 {
 
     public UdpClient client;
-    public IPEndPoint ipEndPoint;
     public IPEndPoint endPoint;
-    public Thread thread;
 
     public byte[] receivedData;
     public string dataString;
 
     public bool socketOpen = false;
 
-    //public void CreateSocket(int port, string ip)
     public void CreateSocket(int port)
     {   
         Debug.Log("Create new Udp client on port " + port.ToString());
