@@ -37,6 +37,17 @@ public class ConnectionStatusDisplay : MonoBehaviour
         if (lastConnectionState == null || isConnected != lastConnectionState.Value)
         {
             imageComponent.sprite = isConnected ? connectedSprite : disconnectedSprite;
+            
+            RectTransform rt = imageComponent.rectTransform;
+            if (isConnected)
+            {
+                rt.sizeDelta = new Vector2(45f, 35f);
+            }
+            else
+            {
+                rt.sizeDelta = new Vector2(45f, 44f);
+            }
+
             lastConnectionState = isConnected;
 
             Debug.Log("Connection status updated. Connected: " + isConnected);
