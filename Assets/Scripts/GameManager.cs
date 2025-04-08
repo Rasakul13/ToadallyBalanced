@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerMovement movement;
 
+    public ConnectionStatusDisplay connectionStatusDisplay;
+
+    private Coroutine delayedShowDialogCoroutine;
+
     public VASDialogController vasDialogController;
     public Text gameOver;
     public Text levelCompletedText;
@@ -133,7 +137,15 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {   
         if(gameHasStarted) 
-        {
+        {   
+            if(gameHasEnded) 
+            {
+                if (delayedShowDialogCoroutine != null)
+                StopCoroutine(delayedShowDialogCoroutine);
+
+                vasDialogController.ShowDialog();
+            }
+
             UdpManager.Instance.CloseSocket();
             GameEnd(true);
         }
@@ -149,6 +161,7 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
 
+            connectionStatusDisplay?.Hide();
             movement.enabled = false;
             animator.Play("DisappearingAnimation", 0, 3f);
             animator.SetBool("gameHasEnded", true);
@@ -173,15 +186,15 @@ public class GameManager : MonoBehaviour
 
             spawnManager?.DespawnFruit();
 
-            if(quitButtonClicked == true)
+            if(quitButtonClicked)
             {
                 StartCoroutine(HideGameElements(0.5f));
-                StartCoroutine(DelayedShowDialog(2.0f));
+                delayedShowDialogCoroutine = StartCoroutine(DelayedShowDialog(2.0f));
             }
             else 
             {
                 StartCoroutine(HideGameElements(1.0f));
-                StartCoroutine(DelayedShowDialog(4.0f));
+                delayedShowDialogCoroutine = StartCoroutine(DelayedShowDialog(5.0f));
             }
         }
     }
@@ -211,5 +224,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         vasDialogController.ShowDialog();
+        delayedShowDialogCoroutine = null;
     }
 }

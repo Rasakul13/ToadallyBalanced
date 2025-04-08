@@ -54,6 +54,11 @@ public class ConnectionStatusDisplay : MonoBehaviour
         }
     }
 
+    public void Hide()
+    {
+        imageComponent.enabled = false;
+    }
+
     private IEnumerator DelayedInitialCheck()
     {
         yield return new WaitForSeconds(0.6f);
