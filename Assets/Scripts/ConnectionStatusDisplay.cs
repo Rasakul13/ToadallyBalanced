@@ -41,11 +41,11 @@ public class ConnectionStatusDisplay : MonoBehaviour
             RectTransform rt = imageComponent.rectTransform;
             if (isConnected)
             {
-                rt.sizeDelta = new Vector2(45f, 35f);
+                rt.sizeDelta = new Vector2(50f, 40f);
             }
             else
             {
-                rt.sizeDelta = new Vector2(45f, 44f);
+                rt.sizeDelta = new Vector2(50f, 50f);
             }
 
             lastConnectionState = isConnected;

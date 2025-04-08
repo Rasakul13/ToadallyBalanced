@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c2147da01d26c48cea423d323d845ac1
+guid: 3d7b161d1938c4db3a58d10e1aafd887
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7059231194861286395
-    second: game-controller_0
+      213: 2921561637461426382
+    second: controller 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: game-controller_0
+      name: controller 1_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 12
-        width: 59
-        height: 40
+        x: 0
+        y: 0
+        width: 257
+        height: 169
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50ccfe231a2980e90800000000000000
-      internalID: -7059231194861286395
+      spriteID: ec00c4684d87b8820800000000000000
+      internalID: 2921561637461426382
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      game-controller_0: -7059231194861286395
+      controller 1_0: 2921561637461426382
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
