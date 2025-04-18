@@ -38,11 +38,11 @@ public class PlayerCollision : MonoBehaviour
                 invulnerable = true;
                 
                 Debug.Log("Player hit " + collision.collider.name);
+
+                movement.setMovementBool(false);
                 
                 // -1 HP 
                 gameManager?.TakeDamage();
-
-                // movement.setMovementBool(false);
 
                 animator.Play("DisappearingAnimation", 0, 3f);
 
