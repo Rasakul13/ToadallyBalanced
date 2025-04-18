@@ -52,7 +52,7 @@ public class UdpManager : MonoBehaviour
             client = new UdpClient(port);
             endPoint = new IPEndPoint(IPAddress.Any, 0);
             socketOpen = true;
-            Debug.Log("UDP Socket started on port " + port);
+            Debug.Log("UDP Socket listening on port " + port);
          }
         catch (Exception e)
         {
