@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      smiley_severe_pain_0: 5767380393815751772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
