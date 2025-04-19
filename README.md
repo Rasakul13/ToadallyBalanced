@@ -25,7 +25,8 @@ Download the version of the application that matches your system:
   [Download for Linux](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Linux.zip)
 
 > All builds are standalone and require no installation. Just download and run!
-> https://github.com/Rasakul13/ToadallyTilted/releases/tag/v1.0.0
+
+For further information see the Releases page of the Application [ToadallyTilted Releases](https://github.com/Rasakul13/ToadallyTilted/releases/tag/v1.0.0)
 
 ---
 
