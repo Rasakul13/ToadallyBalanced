@@ -4,6 +4,9 @@ This Unity-based application is a **serious game** designed to support **rehabil
 
 The game tracks real-time movement through a companion Android application that streams gravity sensor data over Wi-Fi, turning your smartphone into a motion controller placed on the balance board.
 
+After each game session, a dialog will appear prompting the player to indicate their pain level using the VAS scale. The data is saved locally in the user's home directory at:
+~/ToadallyBalanced/Data/vas_log.csv
+
 ---
 
 ## 📥 Download & Installation
