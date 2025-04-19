@@ -38,11 +38,11 @@ public class PlayerCollision : MonoBehaviour
                 invulnerable = true;
                 
                 Debug.Log("Player hit " + collision.collider.name);
+
+                movement.setMovementBool(false);
                 
                 // -1 HP 
                 gameManager?.TakeDamage();
-
-                movement.enabled = false;
 
                 animator.Play("DisappearingAnimation", 0, 3f);
 
@@ -61,7 +61,7 @@ public class PlayerCollision : MonoBehaviour
 
     public void EnableMovement()
     {
-        movement.enabled = true;
+        movement.setMovementBool(true);
         invulnerable = false;
     }
 
@@ -71,5 +71,6 @@ public class PlayerCollision : MonoBehaviour
         player.transform.SetPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0,0,0)));
 
         audioManager?.Play("PlayerSpawn");
+        // EnableMovement();
     } 
 }

@@ -97,7 +97,8 @@ AnimationClip:
   - time: 0.5833333
     functionName: EnableMovement
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 102900000, guid: 54e994244b4b467e8583cf2da6dcc716,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

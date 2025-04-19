@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public UdpSocket client;
+    public UdpManager client;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -33,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
             sensitivity = PlayerPrefs.GetFloat("sensitivity");
             Debug.Log("Sensitivity: " + sensitivity);
         }
+
+        client = UdpManager.Instance;
     }
     
     void Update()
-    {
+    {   
         if(client.socketOpen)
         {
             input = client.ReceiveData();
@@ -90,18 +92,19 @@ public class PlayerMovement : MonoBehaviour
                 
                 
             }
-        }
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-    
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
     }
 
     void FixedUpdate() 
     {   
-        // Movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if(isEnabled) {
+            // Movement
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);    
+        }    
     }
 
     public void setMovementBool(bool boolean) {
