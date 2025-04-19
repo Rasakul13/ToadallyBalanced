@@ -12,8 +12,11 @@ The game tracks real-time movement through a companion Android application that 
 
 Download the version of the application that matches your system:
 
-- **Windows (.exe)**  
-  [Download for Windows](https://your-download-link.com/windows)
+- **Windows x64 (.exe)**  
+  [Download for Windows](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Windows_x64.zip)
+
+- **Windows ARM (.exe)**  
+  [Download for Windows](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Windows_ARM.zip)
 
 - **macOS (.app)**  
   [Download for macOS](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_macOS.zip)
