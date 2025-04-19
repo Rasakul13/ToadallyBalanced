@@ -16,7 +16,7 @@ Download the version of the application that matches your system:
   [Download for Windows](https://your-download-link.com/windows)
 
 - **macOS (.app)**  
-  [Download for macOS](https://your-download-link.com/mac)
+  [Download for macOS](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_macOS.zip)
 
 - **Linux (.x86_64)**  
   [Download for Linux](https://your-download-link.com/linux)
