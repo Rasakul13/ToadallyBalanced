@@ -8588,13 +8588,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The character, named Toaddo, is controlled using a balance board. By tilting
+  m_text: "The character, named Toady, is controlled using a balance board. By tilting
     in one direction, the character moves in that direction.\n\nThe aim of the game
-    is to collect fruits with Toaddo, with each fruit collected being worth 100 points.
+    is to collect fruits with Toady, with each fruit collected being worth 100 points.
     The game ends as soon as either the target number of points has been reached
     or the time has run out.\n\nBut beware, because there are dangers such as enemies
-    and traps waiting for Toaddo! \nHe must skillfully avoid these during his hunt
-    for fruit so that he does not take any damage. If Toaddo comes into contact with
+    and traps waiting for Toady! \nHe must skillfully avoid these during his hunt
+    for fruit so that he does not take any damage. If Toady comes into contact with
     an enemy or a trap, he loses one of his precious lives. \n\nThe score target
     and the number of lives depend on the selected difficulty level, which can be
     selected in the game settings. The default setting for the time can also be selected
@@ -15837,7 +15837,7 @@ GameObject:
   - component: {fileID: 1945359090}
   - component: {fileID: 1945359089}
   m_Layer: 0
-  m_Name: Toada
+  m_Name: Toady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17595,7 +17595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2101612964
 RectTransform:
   m_ObjectHideFlags: 0
