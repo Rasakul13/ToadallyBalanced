@@ -13,20 +13,21 @@ The game tracks real-time movement through a companion Android application that 
 Download the version of the application that matches your system:
 
 - **Windows x64 (.exe)**  
-  [Download for Windows (x64)](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Windows_x64.zip)
+  [Download for Windows (x64)](https://github.com/Rasakul13/ToadallyBalanced/releases/download/v1.0.0/ToadallyBalanced_Windows_x64.zip)
 
 - **Windows ARM (.exe)**  
-  [Download for Windows (ARM)](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Windows_ARM.zip)
+  [Download for Windows (ARM)](https://github.com/Rasakul13/ToadallyBalanced/releases/download/v1.0.0/ToadallyBalanced_Windows_ARM.zip)
 
 - **macOS (.app)**  
-  [Download for macOS](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_macOS.zip)
+  [Download for macOS](https://github.com/Rasakul13/ToadallyBalanced/releases/download/v1.0.0/ToadallyBalanced_macOS.zip)
 
 - **Linux (.x86_64)**  
-  [Download for Linux](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Linux.zip)
+  [Download for Linux](https://github.com/Rasakul13/ToadallyBalanced/releases/download/v1.0.0/ToadallyBalanced_Linux.zip)
 
 > All builds are standalone and require no installation. Just download and run!
 
-For further information see the Releases page of the Application [ToadallyTilted Releases](https://github.com/Rasakul13/ToadallyTilted/releases/tag/v1.0.0)
+For further information see the Releases page
+[ToadallyBalanced Releases](https://github.com/Rasakul13/ToadallyBalanced/releases/tag/v1.0.0)
 
 ---
 
