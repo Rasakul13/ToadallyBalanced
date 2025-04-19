@@ -19,9 +19,10 @@ Download the version of the application that matches your system:
   [Download for macOS](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_macOS.zip)
 
 - **Linux (.x86_64)**  
-  [Download for Linux](https://your-download-link.com/linux)
+  [Download for Linux](https://github.com/Rasakul13/ToadallyTilted/releases/download/v1.0.0/ToadallyTilted_Linux.zip)
 
 > All builds are standalone and require no installation. Just download and run!
+> https://github.com/Rasakul13/ToadallyTilted/releases/tag/v1.0.0
 
 ---
 
