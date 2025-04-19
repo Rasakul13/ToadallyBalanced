@@ -28,7 +28,7 @@ public class VASDialogController : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
 
         string documentsPath = GetFolderPath(SpecialFolder.MyDocuments);
-        string gameFolder = Path.Combine(documentsPath, "ToadallyTilted"); // Name the games folder
+        string gameFolder = Path.Combine(documentsPath, "ToadallyBalanced"); // Name the games folder
         string dataFolder = Path.Combine(gameFolder, "Data");
 
         Directory.CreateDirectory(dataFolder); // Ensure directory exists
